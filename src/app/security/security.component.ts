@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {JwtClientService} from "../jwt-client.service";
+import {User} from "../../User";
 
 @Component({
   selector: 'app-security',
@@ -9,7 +10,7 @@ import {JwtClientService} from "../jwt-client.service";
 export class SecurityComponent implements OnInit {
 
   response:any;
-  usersCredentials:any;
+  usersCredentials: any;
   authRequest: any = {
     "email": "tomek.mazur95@gmail.com",
     "password": "password123"
