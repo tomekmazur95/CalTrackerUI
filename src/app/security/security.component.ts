@@ -37,10 +37,7 @@ export class SecurityComponent implements OnInit {
   public accessUsers(token) {
     let response = this.service.getUserCredentials(token);
     return response.subscribe(e => {
-        console.log('Raw data from backend:', e);
         this.usersCredentials = e;
-        console.log('User credentials after assignment:', this.usersCredentials);
-
     });
   }
 }

@@ -28,7 +28,7 @@ export class JwtClientService {
   public getUserCredentials(token) {
     let tokenStr = 'Bearer ' + token;
     const headers = new HttpHeaders().set("Authorization", tokenStr);
-    return this.http.get<User>("http://localhost:8080/users/1", {headers, responseType: 'text' as 'json'}).pipe(
+    return this.http.get<User>("http://localhost:8080/users/1", {headers}).pipe(
       tap(data => console.log('User credentials:', data)),
       catchError(this.handleError)
     );

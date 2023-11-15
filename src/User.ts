@@ -17,16 +17,16 @@ export enum Unit {
 }
 export interface Measurement {
     id: number,
-    type: string,
+    type: MeasureType,
     value: number,
-    unit: string,
+    unit: Unit,
     date: string
 }
 export interface User {
     id: number,
     userName: string,
     birthDate: string,
-    gender: string,
-    activity: string,
+    gender: Gender,
+    activity: Activity,
     height: Measurement
 }
