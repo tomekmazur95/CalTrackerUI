@@ -1,10 +1,9 @@
 <h1 style="color: blue">{{response}}</h1>
 <div *ngIf="usersCredentials">
-  <h4>Your credentials:
+  <h2>Your credentials: </h2>
     <p>Name: {{usersCredentials?.userName}}</p>
     <p>Gender: {{usersCredentials?.gender}}</p>
     <p>Birth Date: {{usersCredentials?.birthDate}}</p>
     <p>Activity: {{usersCredentials?.activity}}</p>
     <p>Height: {{usersCredentials?.height.value}}  {{usersCredentials.height.unit}}</p>
-  </h4>
 </div>

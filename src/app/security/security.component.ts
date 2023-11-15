@@ -26,13 +26,9 @@ export class SecurityComponent implements OnInit {
   }
 
   public getAccessToken(authRequest) {
-    return this.service.generateToken(authRequest).subscribe(token => this.accessUsers(token));
+    return this.service.generateToken(authRequest).subscribe(token => this.accessUsers(token.token));
   }
 
-  public accessApi(token) {
-    let response = this.service.welcome(token);
-    response.subscribe(e => this.response = e);
-  }
 
   public accessUsers(token) {
     let response = this.service.getUserCredentials(token);
