@@ -1,4 +1,6 @@
 <h1 style="color: blue">{{response}}</h1>
-<div>
-  <h4>user credentials:<br> {{usersCredentials}}</h4>
+<div *ngIf="usersCredentials">
+  <pre>User Name (log): {{ usersCredentials | json }}</pre>
+  <h4>user credentials:
+    <br> {{usersCredentials?.userName}}</h4>
 </div>

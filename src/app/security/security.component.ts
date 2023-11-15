@@ -10,7 +10,7 @@ import {User} from "../../User";
 export class SecurityComponent implements OnInit {
 
   response:any;
-  usersCredentials: any;
+  usersCredentials: User;
   authRequest: any = {
     "email": "tomek.mazur95@gmail.com",
     "password": "password123"
@@ -26,9 +26,7 @@ export class SecurityComponent implements OnInit {
   }
 
   public getAccessToken(authRequest) {
-    let response = this.service.generateToken(authRequest)
-    response.subscribe(e => this.accessApi(e));
-    response.subscribe(e => this.accessUsers(e));
+    return this.service.generateToken(authRequest).subscribe(token => this.accessUsers(token));
   }
 
   public accessApi(token) {
@@ -38,6 +36,11 @@ export class SecurityComponent implements OnInit {
 
   public accessUsers(token) {
     let response = this.service.getUserCredentials(token);
-    response.subscribe(e => this.usersCredentials = e);
+    return response.subscribe(e => {
+        console.log('Raw data from backend:', e);
+        this.usersCredentials = e;
+        console.log('User credentials after assignment:', this.usersCredentials);
+
+    });
   }
 }
