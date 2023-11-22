@@ -1,6 +1,5 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
-import {User} from "../../User";
 import {catchError, tap, throwError} from "rxjs";
 import {AuthenticationRequest, AuthenticationResponse, RegisterRequest} from "../../AuthenticationResponse";
 
@@ -16,13 +15,21 @@ export class AuthenticationClient {
     constructor(private http: HttpClient) {
     }
 
-    public login(request: AuthenticationRequest) {
-        return this.http.post<AuthenticationResponse>("http://localhost:8080/api/v1/auth/authenticate", request)
+    public login(email: string, password: string) {
+        return this.http.post<AuthenticationResponse>("http://localhost:8080/api/v1/auth/authenticate",
+            {
+                email: email,
+                password: password
+            })
             .pipe(catchError(this.handleError));
     }
 
-    public register(request: RegisterRequest) {
-        return this.http.post<AuthenticationResponse>("http://localhost:8080/api/v1/auth/register", request)
+    public register(email: string, password: string) {
+        return this.http.post<AuthenticationResponse>("http://localhost:8080/api/v1/auth/register",
+            {
+                email: email,
+                password: password
+            })
             .pipe(catchError(this.handleError));
     }
 
@@ -33,12 +40,12 @@ export class AuthenticationClient {
                 catchError(this.handleError))
     }*/
 
-    public getUserCredentials(token: string) {
-        let tokenStr = 'Bearer ' + token;
-        const headers = new HttpHeaders().set("Authorization", tokenStr);
-        return this.http.get<User>("http://localhost:8080/users/1", {headers})
-            .pipe(tap(data => console.log('User credentials:', data)),
-                catchError(this.handleError)
-            );
-    }
+    /*    public getUserCredentials(token: string) {
+            let tokenStr = 'Bearer ' + token;
+            const headers = new HttpHeaders().set("Authorization", tokenStr);
+            return this.http.get<User>("http://localhost:8080/users/1", {headers})
+                .pipe(tap(data => console.log('User credentials:', data)),
+                    catchError(this.handleError)
+                );
+        }*/
 }

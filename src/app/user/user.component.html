@@ -1,0 +1,38 @@
+<button mat-raised-button color="primary" style=" align-items: center; margin: 0 16px;" (click)="logout()">Logout</button>
+<mat-grid-list cols="3" rowHeight="2:1">
+  <mat-grid-tile>
+  <mat-card>
+    <mat-card-title>My personal information</mat-card-title>
+    <mat-card-content>
+      <section>
+        <p>Email: {{userInfo?.email}}</p>
+        <p>Id: {{userInfo?.id}}</p>
+        <p>Name: {{userCredentials?.userName}}</p>
+        <p>Birth Date: {{userCredentials?.birthDate}}</p>
+        <p>Gender: {{userCredentials?.gender}}</p>
+        <p>Height: {{userCredentials?.height.value}}</p>
+        <p>Activity: {{userCredentials?.activity}}</p>
+      </section>
+    </mat-card-content>
+  </mat-card>
+  </mat-grid-tile>
+
+  <mat-grid-tile>
+    <mat-card>
+      <mat-card-title>My Goals</mat-card-title>
+      <mat-card-content>
+        <!-- Dodaj tutaj informacje dotyczące celów użytkownika, jeśli są dostępne -->
+      </mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
+
+  <mat-grid-tile>
+    <mat-card>
+      <mat-card-title>Something Else</mat-card-title>
+      <mat-card-content>
+        <!-- Dodaj tutaj inne informacje, jeśli są dostępne -->
+      </mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>
+

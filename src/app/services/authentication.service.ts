@@ -15,16 +15,17 @@ export class AuthenticationService {
       private router : Router
   ) { }
 
-  public login(request: AuthenticationRequest): void {
-    this.authenticationClient.login(request).subscribe((response) =>
+  public login(email: string, password: string): void {
+    this.authenticationClient.login(email, password).subscribe((response) =>
     {
       localStorage.setItem(this.tokenKey, response.token);
       this.router.navigate(['/']);
     });
   }
 
-  public register(request: AuthenticationRequest): void {
-    this.authenticationClient.register(request).subscribe((response) =>
+  public register(email: string, password: string): void {
+    localStorage.removeItem(this.tokenKey);
+    this.authenticationClient.register(email, password).subscribe((response) =>
     {
       localStorage.setItem(this.tokenKey, response.token);
       this.router.navigate(['/']);
