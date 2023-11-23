@@ -28,4 +28,8 @@ export class UserComponent implements OnInit{
   logout(): void {
     this.authenticationService.logout();
   }
+
+  addInformation() {
+  
+  }
 }

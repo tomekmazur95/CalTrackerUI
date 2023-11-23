@@ -10,7 +10,7 @@ import {UserInfoResponse} from "../../AuthenticationResponse";
 export class UserClient {
   constructor(private http: HttpClient) {}
   getUserCredentials(userInfoId: number): Observable<User> {
-        return this.http.get<User>(`http://localhost:8080/users/${userInfoId}`);
+        return this.http.get<User>(`http://localhost:8080/users/userInfo?id=${userInfoId}`);
     }
   getUserInfo() {
     return this.http.get<UserInfoResponse>('http://localhost:8080/userInfo');

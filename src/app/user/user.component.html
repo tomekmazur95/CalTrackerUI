@@ -1,10 +1,11 @@
-<button mat-raised-button color="primary" style=" align-items: center; margin: 0 16px;" (click)="logout()">Logout</button>
+
+<button mat-raised-button color="primary" (click)="logout()">Logout</button>
 <mat-grid-list cols="3" rowHeight="2:1">
   <mat-grid-tile>
   <mat-card>
     <mat-card-title>My personal information</mat-card-title>
     <mat-card-content>
-      <section>
+      <section *ngIf="userCredentials">
         <p>Email: {{userInfo?.email}}</p>
         <p>Id: {{userInfo?.id}}</p>
         <p>Name: {{userCredentials?.userName}}</p>
@@ -12,6 +13,9 @@
         <p>Gender: {{userCredentials?.gender}}</p>
         <p>Height: {{userCredentials?.height.value}}</p>
         <p>Activity: {{userCredentials?.activity}}</p>
+      </section>
+      <section *ngIf="!userCredentials">
+        <button mat-raised-button color="primary" (click)="logout()">Add information</button>
       </section>
     </mat-card-content>
   </mat-card>
