@@ -1,42 +1,41 @@
+<div style="display: block; flex-direction: column; align-items: center; margin: 20px;">
+  <button mat-raised-button color="primary" (click)="logout()">Logout</button>
+  <mat-grid-list cols="3" rowHeight="2:1">
+    <mat-grid-tile>
+      <mat-card>
+        <mat-card-title>My information</mat-card-title>
+        <mat-card-content *ngIf="userCredentials">
+          <mat-card-content>Email: {{userInfo?.email}}</mat-card-content>
+          <mat-card-content>Id: {{userInfo?.id}}</mat-card-content>
+          <mat-card-content>Name: {{userCredentials?.userName}}</mat-card-content>
+          <mat-card-content>Birth Date: {{userCredentials?.birthDate}}</mat-card-content>
+          <mat-card-content>Gender: {{userCredentials?.gender}}</mat-card-content>
+          <mat-card-content>Height: {{userCredentials?.height.value}}</mat-card-content>
+          <mat-card-content>Activity: {{userCredentials?.activity}}</mat-card-content>
+        </mat-card-content>
+        <section *ngIf="!userCredentials">
+          <button mat-raised-button color="primary" (click)="logout()">Add information</button>
+        </section>
+      </mat-card>
+    </mat-grid-tile>
 
-<button mat-raised-button color="primary" (click)="logout()">Logout</button>
-<mat-grid-list cols="3" rowHeight="2:1">
-  <mat-grid-tile>
-  <mat-card>
-    <mat-card-title>My personal information</mat-card-title>
-    <mat-card-content>
-      <section *ngIf="userCredentials">
-        <p>Email: {{userInfo?.email}}</p>
-        <p>Id: {{userInfo?.id}}</p>
-        <p>Name: {{userCredentials?.userName}}</p>
-        <p>Birth Date: {{userCredentials?.birthDate}}</p>
-        <p>Gender: {{userCredentials?.gender}}</p>
-        <p>Height: {{userCredentials?.height.value}}</p>
-        <p>Activity: {{userCredentials?.activity}}</p>
-      </section>
-      <section *ngIf="!userCredentials">
-        <button mat-raised-button color="primary" (click)="logout()">Add information</button>
-      </section>
-    </mat-card-content>
-  </mat-card>
-  </mat-grid-tile>
+    <mat-grid-tile>
+      <mat-card>
+        <mat-card-title>My Goals</mat-card-title>
+        <mat-card-content>
+          <!-- Dodaj tutaj informacje dotyczące celów użytkownika, jeśli są dostępne -->
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
 
-  <mat-grid-tile>
-    <mat-card>
-      <mat-card-title>My Goals</mat-card-title>
-      <mat-card-content>
-        <!-- Dodaj tutaj informacje dotyczące celów użytkownika, jeśli są dostępne -->
-      </mat-card-content>
-    </mat-card>
-  </mat-grid-tile>
-
-  <mat-grid-tile>
-    <mat-card>
-      <mat-card-title>Something Else</mat-card-title>
-      <mat-card-content>
-        <!-- Dodaj tutaj inne informacje, jeśli są dostępne -->
-      </mat-card-content>
-    </mat-card>
-  </mat-grid-tile>
-</mat-grid-list>
+    <mat-grid-tile>
+      <mat-card>
+        <mat-card-title>Something Else</mat-card-title>
+        <mat-card-content>
+          <!-- Dodaj tutaj inne informacje, jeśli są dostępne -->
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
 
