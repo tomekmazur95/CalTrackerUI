@@ -14,7 +14,10 @@
           <mat-card-content>Activity: {{userCredentials?.activity}}</mat-card-content>
         </mat-card-content>
         <section *ngIf="!userCredentials">
-          <button mat-raised-button color="primary" (click)="logout()">Add information</button>
+          <button mat-raised-button color="primary" *ngIf="showAddInformationButton" (click)="openAddInformationForm()">
+            Add information
+          </button>
+          <app-add-info *ngIf="addInfo" (onSave)="saveInfo($event)" (onCancel)="cancelInfo()"></app-add-info>
         </section>
       </mat-card>
     </mat-grid-tile>

@@ -13,6 +13,8 @@ export class UserComponent implements OnInit{
 
   public userCredentials: User;
   public userInfo: UserInfoResponse;
+  public addInfo :boolean = false;
+  showAddInformationButton = true;
   constructor(
       private userClient:  UserClient,
       private authenticationService: AuthenticationService) {
@@ -28,8 +30,16 @@ export class UserComponent implements OnInit{
   logout(): void {
     this.authenticationService.logout();
   }
-
-  addInformation() {
-  
+  openAddInformationForm() {
+    this.addInfo = true;
+    this.showAddInformationButton = false;
+  }
+  cancelInfo() {
+    this.addInfo = false;
+    this.showAddInformationButton = true;
+  }
+  saveInfo($event: any) {
+    this.addInfo= false;
+    this.showAddInformationButton = true;
   }
 }

@@ -14,13 +14,17 @@ import {LoginPageComponent} from "./login-page/login-page.component";
 import {RegisterPageComponent} from "./register-page/register-page.component";
 import {UserComponent} from "./user/user.component";
 import {MatGridListModule} from "@angular/material/grid-list";
+import { AddInfoComponent } from './user/add-info/add-info.component';
+import { EditInfoComponent } from './user/edit-info/edit-info.component';
 
 @NgModule({
   declarations: [
       AppComponent,
       LoginPageComponent,
       RegisterPageComponent,
-      UserComponent
+      UserComponent,
+      AddInfoComponent,
+      EditInfoComponent
   ],
   imports: [
     BrowserModule,
