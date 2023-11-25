@@ -15,4 +15,9 @@ export class UserClient {
   getUserInfo() {
     return this.http.get<UserInfoResponse>('http://localhost:8080/userInfo');
   }
+
+  createUserCredentials(userInfoId: number, requestBody) {
+    console.log(userInfoId, requestBody);
+    return this.http.post<User>('http://localhost:8080/users/' +  userInfoId , requestBody);
+  }
 }

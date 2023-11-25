@@ -1,12 +1,9 @@
-<div style="display: block; flex-direction: column; align-items: center; margin: 20px;">
-  <button mat-raised-button color="primary" (click)="logout()">Logout</button>
-  <mat-grid-list cols="3" rowHeight="2:1">
-    <mat-grid-tile>
-      <mat-card>
-        <mat-card-title>My information</mat-card-title>
+ <button mat-raised-button color="primary" (click)="logout()">Logout</button>
+  <mat-grid-list cols="3" rowHeight="4:1">
+    <mat-grid-tile style="height: 200%;">
+      <mat-card style="height: 80%; width: fit-content">
+        <mat-card-title style="width: 245px; text-align: center">My information</mat-card-title>
         <mat-card-content *ngIf="userCredentials">
-          <mat-card-content>Email: {{userInfo?.email}}</mat-card-content>
-          <mat-card-content>Id: {{userInfo?.id}}</mat-card-content>
           <mat-card-content>Name: {{userCredentials?.userName}}</mat-card-content>
           <mat-card-content>Birth Date: {{userCredentials?.birthDate}}</mat-card-content>
           <mat-card-content>Gender: {{userCredentials?.gender}}</mat-card-content>
@@ -14,8 +11,8 @@
           <mat-card-content>Activity: {{userCredentials?.activity}}</mat-card-content>
         </mat-card-content>
         <section *ngIf="!userCredentials">
-          <button mat-raised-button color="primary" *ngIf="showAddInformationButton" (click)="openAddInformationForm()">
-            Add information
+          <button mat-raised-button color="primary" style="margin-left: 80px;" *ngIf="showAddInformationButton" (click)="openAddInformationForm()">
+            Add
           </button>
           <app-add-info *ngIf="addInfo" (onSave)="saveInfo($event)" (onCancel)="cancelInfo()"></app-add-info>
         </section>
@@ -40,5 +37,4 @@
       </mat-card>
     </mat-grid-tile>
   </mat-grid-list>
-</div>
 

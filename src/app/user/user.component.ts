@@ -38,7 +38,10 @@ export class UserComponent implements OnInit{
     this.addInfo = false;
     this.showAddInformationButton = true;
   }
-  saveInfo($event: any) {
+  saveInfo(data: any) {
+
+
+    this.userClient.createUserCredentials(this.userInfo.id, data).subscribe(e=> this.userCredentials=e);
     this.addInfo= false;
     this.showAddInformationButton = true;
   }
