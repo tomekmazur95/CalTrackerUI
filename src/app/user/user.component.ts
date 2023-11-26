@@ -14,7 +14,10 @@ export class UserComponent implements OnInit{
   public userCredentials: User;
   public userInfo: UserInfoResponse;
   public addInfo :boolean = false;
+  public editInfo: boolean = false;
+
   showAddInformationButton = true;
+  showEditInformationButton = true;
   constructor(
       private userClient:  UserClient,
       private authenticationService: AuthenticationService) {
@@ -37,12 +40,23 @@ export class UserComponent implements OnInit{
   cancelInfo() {
     this.addInfo = false;
     this.showAddInformationButton = true;
+    this.showEditInformationButton= true;
+    this.editInfo= false;
   }
   saveInfo(data: any) {
-
-
     this.userClient.createUserCredentials(this.userInfo.id, data).subscribe(e=> this.userCredentials=e);
     this.addInfo= false;
     this.showAddInformationButton = true;
+  }
+
+  openEditInformationForm() {
+    this.editInfo= true;
+    this.showEditInformationButton = false;
+  }
+
+  saveEditInfo(data: any) {
+    this.userClient.editUserCredentials(this.userCredentials.id, data).subscribe(e => this.userCredentials = e);
+    this.editInfo = false;
+    this.showEditInformationButton = true;
   }
 }

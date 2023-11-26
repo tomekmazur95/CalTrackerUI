@@ -17,7 +17,10 @@ export class UserClient {
   }
 
   createUserCredentials(userInfoId: number, requestBody) {
-    console.log(userInfoId, requestBody);
-    return this.http.post<User>('http://localhost:8080/users/' +  userInfoId , requestBody);
+    return this.http.post<User>(`http://localhost:8080/users/${userInfoId}`, requestBody);
+  }
+
+  editUserCredentials(userId: number, requestBody) {
+    return this.http.put<User>(`http://localhost:8080/users/${userId}` , requestBody)
   }
 }

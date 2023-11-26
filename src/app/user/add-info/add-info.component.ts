@@ -37,6 +37,15 @@ export class AddInfoComponent {
     'Very active',
     'Extra active'
   ]
+
+  activityListMap : Map<string, Activity> = new Map ([
+    ['Sedentary' , Activity.SEDENTARY],
+    ['Lightly active', Activity.LIGHTLY_ACTIVE],
+    ['Moderately active', Activity.MODERATELY_ACTIVE],
+    ['Very active', Activity.VERY_ACTIVE],
+    ['Extra active', Activity.EXTRA_ACTIVE]
+  ])
+
   userFormRequest: User = new User();
 
 
@@ -55,6 +64,7 @@ export class AddInfoComponent {
     this.userFormRequest.userName = this.userForm.get('userName').value;
     this.userFormRequest.gender = this.fetchGender(this.userForm.get('gender').value);
     this.userFormRequest.height = this.fetchHeight(this.userForm.get('height').value);
+    this.userFormRequest.activity = this.fetchActivity(this.userForm.get('activity').value);
     this.onSave.emit(this.userFormRequest);
   }
 
@@ -74,5 +84,8 @@ export class AddInfoComponent {
 
   cancel() {
     this.onCancel.emit();
+  }
+  private fetchActivity(activity: string) {
+    return this.activityListMap.get(activity);
   }
 }

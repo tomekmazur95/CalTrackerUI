@@ -1,40 +1,52 @@
- <button mat-raised-button color="primary" (click)="logout()">Logout</button>
-  <mat-grid-list cols="3" rowHeight="4:1">
-    <mat-grid-tile style="height: 200%;">
-      <mat-card style="height: 80%; width: fit-content">
-        <mat-card-title style="width: 245px; text-align: center">My information</mat-card-title>
-        <mat-card-content *ngIf="userCredentials">
-          <mat-card-content>Name: {{userCredentials?.userName}}</mat-card-content>
-          <mat-card-content>Birth Date: {{userCredentials?.birthDate}}</mat-card-content>
-          <mat-card-content>Gender: {{userCredentials?.gender}}</mat-card-content>
-          <mat-card-content>Height: {{userCredentials?.height.value}}</mat-card-content>
-          <mat-card-content>Activity: {{userCredentials?.activity}}</mat-card-content>
-        </mat-card-content>
-        <section *ngIf="!userCredentials">
-          <button mat-raised-button color="primary" style="margin-left: 80px;" *ngIf="showAddInformationButton" (click)="openAddInformationForm()">
-            Add
+<button mat-raised-button color="primary" (click)="logout()">Logout</button>
+
+<mat-grid-list cols="3" rowHeight="4:1">
+
+  <mat-grid-tile style="height: 500%;">
+    <mat-card style="height: 80%; width: auto">
+      <mat-card-title style="width: 245px; text-align: center">My information</mat-card-title>
+      <div *ngIf="userCredentials && !editInfo">
+        <mat-card-content>Name: {{userCredentials?.userName}}</mat-card-content>
+        <mat-card-content>Birth Date: {{userCredentials?.birthDate}}</mat-card-content>
+        <mat-card-content>Gender: {{userCredentials?.gender}}</mat-card-content>
+        <mat-card-content>Height: {{userCredentials?.height.value}}</mat-card-content>
+        <mat-card-content>Activity: {{userCredentials?.activity}}</mat-card-content>
+      </div>
+        <section *ngIf="userCredentials">
+          <button mat-raised-button color="primary" style="margin-left: 80px;" *ngIf="showEditInformationButton"
+                  (click)="openEditInformationForm()">
+            Edit
           </button>
-          <app-add-info *ngIf="addInfo" (onSave)="saveInfo($event)" (onCancel)="cancelInfo()"></app-add-info>
+          <app-edit-info *ngIf="editInfo" (onSave)="saveEditInfo($event)" (onCancel)="cancelInfo()" [userCredentials]="userCredentials"></app-edit-info>
         </section>
-      </mat-card>
-    </mat-grid-tile>
 
-    <mat-grid-tile>
-      <mat-card>
-        <mat-card-title>My Goals</mat-card-title>
-        <mat-card-content>
-          <!-- Dodaj tutaj informacje dotyczące celów użytkownika, jeśli są dostępne -->
-        </mat-card-content>
-      </mat-card>
-    </mat-grid-tile>
+      <section *ngIf="!userCredentials">
+        <button mat-raised-button color="primary" style="margin-left: 80px;" *ngIf="showAddInformationButton"
+                (click)="openAddInformationForm()">
+          Add
+        </button>
+        <app-add-info *ngIf="addInfo" (onSave)="saveInfo($event)" (onCancel)="cancelInfo()"></app-add-info>
+      </section>
 
-    <mat-grid-tile>
-      <mat-card>
-        <mat-card-title>Something Else</mat-card-title>
-        <mat-card-content>
-          <!-- Dodaj tutaj inne informacje, jeśli są dostępne -->
-        </mat-card-content>
-      </mat-card>
-    </mat-grid-tile>
-  </mat-grid-list>
+
+    </mat-card>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <mat-card>
+      <mat-card-title>My Goals</mat-card-title>
+      <mat-card-content>
+        <!-- Dodaj tutaj informacje dotyczące celów użytkownika, jeśli są dostępne -->
+      </mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
+
+  <mat-grid-tile>
+    <mat-card>
+      <mat-card-title>Something Else</mat-card-title>
+      <mat-card-content>
+        <!-- Dodaj tutaj inne informacje, jeśli są dostępne -->
+      </mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>
 
