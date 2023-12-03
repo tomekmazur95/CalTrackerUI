@@ -32,20 +32,4 @@ export class AuthenticationClient {
             })
             .pipe(catchError(this.handleError));
     }
-
-
-    /*public generateToken(request: AuthenticationRequest) {
-        return this.http.post<AuthenticationResponse>("http://localhost:8080/api/v1/auth/authenticate", request)
-            .pipe(tap(data => console.log('User credentials: ', data)),
-                catchError(this.handleError))
-    }*/
-
-    /*    public getUserCredentials(token: string) {
-            let tokenStr = 'Bearer ' + token;
-            const headers = new HttpHeaders().set("Authorization", tokenStr);
-            return this.http.get<User>("http://localhost:8080/users/1", {headers})
-                .pipe(tap(data => console.log('User credentials:', data)),
-                    catchError(this.handleError)
-                );
-        }*/
 }

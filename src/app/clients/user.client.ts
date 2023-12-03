@@ -16,11 +16,11 @@ export class UserClient {
     return this.http.get<UserInfoResponse>('http://localhost:8080/userInfo');
   }
 
-  createUserCredentials(userInfoId: number, requestBody) {
+  createUserCredentials(userInfoId: number, requestBody: User) {
     return this.http.post<User>(`http://localhost:8080/users/${userInfoId}`, requestBody);
   }
 
-  editUserCredentials(userId: number, requestBody) {
+  editUserCredentials(userId: number, requestBody: User) {
     return this.http.put<User>(`http://localhost:8080/users/${userId}` , requestBody)
   }
 }
