@@ -10,6 +10,14 @@
     <p></p>
     <mat-form-field>
       <mat-label>
+        {{userCredentials.birthDate}}
+      </mat-label>
+      <input matInput type="date" formControlName="birthDate">
+    </mat-form-field>
+
+    <p></p>
+    <mat-form-field>
+      <mat-label>
         {{userCredentials.gender}}
       </mat-label>
       <mat-select formControlName="gender">
@@ -22,7 +30,7 @@
     <p></p>
     <mat-form-field>
       <mat-label>
-        {{userCredentials.height.value}}
+        {{userCredentials.height.value}} cm
       </mat-label>
       <input matInput type="number" formControlName="height">
     </mat-form-field>

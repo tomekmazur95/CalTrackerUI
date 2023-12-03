@@ -7,9 +7,9 @@
       <mat-card-title style="width: 245px; text-align: center">My information</mat-card-title>
       <div *ngIf="userCredentials && !editInfo">
         <mat-card-content>Name: {{userCredentials?.userName}}</mat-card-content>
-        <mat-card-content>Birth Date: {{userCredentials?.birthDate}}</mat-card-content>
+        <mat-card-content>Birth Date: {{userCredentials?.birthDate}} </mat-card-content>
         <mat-card-content>Gender: {{userCredentials?.gender}}</mat-card-content>
-        <mat-card-content>Height: {{userCredentials?.height.value}}</mat-card-content>
+        <mat-card-content>Height: {{userCredentials?.height.value}} cm</mat-card-content>
         <mat-card-content>Activity: {{userCredentials?.activity}}</mat-card-content>
       </div>
         <section *ngIf="userCredentials">

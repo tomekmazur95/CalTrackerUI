@@ -31,6 +31,12 @@ export class EditInfoComponent {
   genderList: string[] = [
     'Male', 'Female'
   ];
+
+  genderListMap: Map<string, Gender> = new Map([
+    ['Male', Gender.MALE],
+    ['Female', Gender.FEMALE]
+  ])
+
   activityList: string[] = [
     'Sedentary',
     'Lightly active',
@@ -51,6 +57,7 @@ export class EditInfoComponent {
 
   userForm = new FormGroup({
     userName: new FormControl(''),
+    birthDate: new FormControl(''),
     gender: new FormControl(''),
     height: new FormControl(null),
     activity: new FormControl(''),
@@ -58,6 +65,7 @@ export class EditInfoComponent {
 
   save() {
     this.userFormRequest.userName = this.userForm.get('userName').value;
+    this.userFormRequest.birthDate = this.userForm.get('birthDate').value;
     this.userFormRequest.gender = this.fetchGender(this.userForm.get('gender').value);
     this.userFormRequest.height = this.fetchHeight(this.userForm.get('height').value);
     this.userFormRequest.activity = this.fetchActivity(this.userForm.get('activity').value);
@@ -72,10 +80,8 @@ export class EditInfoComponent {
     return heightRequest;
   }
 
-  fetchGender(gender: string) {
-    if (gender.toUpperCase() === Gender.MALE.toString()) {
-      return Gender.MALE
-    } else return Gender.FEMALE;
+  fetchGender(gender: string): Gender {
+    return this.genderListMap.get(gender);
   }
 
   cancel() {
