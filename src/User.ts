@@ -30,7 +30,7 @@ export interface Measurement {
 export interface User {
   id: number,
   userName: string,
-  birthDate: string,
+  age: number,
   gender: Gender,
   activity: Activity,
   height: Measurement

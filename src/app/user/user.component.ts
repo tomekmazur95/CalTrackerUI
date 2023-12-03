@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {UserClient} from "../clients/user.client";
 import {AuthenticationService} from "../services/authentication.service";
-import {User} from "../../User";
+import {Gender, User} from "../../User";
 import {UserInfoResponse} from "../../AuthenticationResponse";
 
 @Component({
@@ -58,5 +58,22 @@ export class UserComponent implements OnInit{
     this.userClient.editUserCredentials(this.userCredentials.id, data).subscribe(e => this.userCredentials = e);
     this.editInfo = false;
     this.showEditInformationButton = true;
+  }
+
+  genderListMap: Map<string, Gender> = new Map([
+    ['Male', Gender.MALE],
+    ['Female', Gender.FEMALE]
+  ]);
+
+  formatGender() {
+    let gender = this.userCredentials.gender;
+    let genderKey: string;
+    for(const [k, v] of this.genderListMap) {
+      if(v === gender) {
+        genderKey = k;
+        break;
+      }
+    }
+    return genderKey;
   }
 }
