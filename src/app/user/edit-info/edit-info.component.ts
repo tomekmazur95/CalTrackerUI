@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {Activity, Gender, MeasureType, Unit} from "../../../User";
 import {FormControl, FormGroup} from "@angular/forms";
 
