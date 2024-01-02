@@ -19,6 +19,7 @@ import {EditInfoComponent} from './user/edit-info/edit-info.component';
 import {MatListModule} from "@angular/material/list";
 import {MatSelectModule} from "@angular/material/select";
 import {MatTableModule} from "@angular/material/table";
+import {MatToolbarModule} from "@angular/material/toolbar";
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import {MatTableModule} from "@angular/material/table";
     MatListModule,
     MatSelectModule,
     MatTableModule,
+    MatToolbarModule,
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true},

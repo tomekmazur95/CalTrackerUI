@@ -1,1 +1,11 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span class="spacer"></span>
+    <span>kcalAppUI</span>
+    <span class="spacer"></span>
+    <div *ngIf="isLoggedIn()">
+      <button mat-raised-button color="primary" (click)="logout()">Logout</button>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>
 <router-outlet></router-outlet>
