@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {UserClient} from "../clients/user.client";
-import {AuthenticationService} from "../services/authentication.service";
 import {Gender, User} from "../../User";
 import {UserInfoResponse} from "../../AuthenticationResponse";
 
@@ -20,7 +19,7 @@ export class UserComponent implements OnInit{
   showEditInformationButton = true;
   constructor(
       private userClient:  UserClient,
-      private authenticationService: AuthenticationService) {
+      ) {
   }
 
   ngOnInit() {
@@ -30,9 +29,6 @@ export class UserComponent implements OnInit{
      });
   }
 
-  logout(): void {
-    this.authenticationService.logout();
-  }
   openAddInformationForm() {
     this.addInfo = true;
     this.showAddInformationButton = false;
