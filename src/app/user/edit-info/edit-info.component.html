@@ -38,7 +38,7 @@
     <p></p>
     <mat-form-field>
       <mat-label>
-        {{userCredentials.activity}}
+        {{formatActivity()}}
       </mat-label>
       <mat-select formControlName="activity">
         <mat-option *ngFor="let activity of activityList" [value]="activity">

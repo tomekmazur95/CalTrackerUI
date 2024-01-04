@@ -49,6 +49,19 @@ export class EditInfoComponent{
     return genderKey;
   }
 
+  formatActivity() {
+    let activity = this.userCredentials.activity;
+    let activityKey: string;
+    for (const [k, v] of this.activityListMap) {
+      if (v === activity) {
+        activityKey = k;
+        break;
+      }
+    }
+    return activityKey;
+  }
+
+
   activityList: string[] = [
     'Sedentary',
     'Lightly active',
@@ -134,7 +147,10 @@ export class EditInfoComponent{
   cancel() {
     this.onCancel.emit();
   }
+
   private fetchActivity(activity: string) {
     return this.activityListMap.get(activity);
   }
+
+
 }
