@@ -9,7 +9,7 @@
         <mat-card-content>Age: {{userCredentials?.age}} </mat-card-content>
         <mat-card-content>Gender: {{formatGender()}}</mat-card-content>
         <mat-card-content>Height: {{userCredentials?.height.value}} cm</mat-card-content>
-        <mat-card-content>Activity: {{userCredentials?.activity}}</mat-card-content>
+        <mat-card-content>Activity: {{formatActivity()}}</mat-card-content>
       </div>
         <section *ngIf="userCredentials">
           <button mat-raised-button color="primary" style="margin-left: 80px;" *ngIf="showEditInformationButton"
