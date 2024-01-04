@@ -20,6 +20,7 @@ import {MatListModule} from "@angular/material/list";
 import {MatSelectModule} from "@angular/material/select";
 import {MatTableModule} from "@angular/material/table";
 import {MatToolbarModule} from "@angular/material/toolbar";
+import { HomePageComponent } from './home-page/home-page.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import {MatToolbarModule} from "@angular/material/toolbar";
     RegisterPageComponent,
     UserComponent,
     AddInfoComponent,
-    EditInfoComponent
+    EditInfoComponent,
+    HomePageComponent
   ],
   imports: [
     BrowserModule,
