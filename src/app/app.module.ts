@@ -21,6 +21,7 @@ import {MatSelectModule} from "@angular/material/select";
 import {MatTableModule} from "@angular/material/table";
 import {MatToolbarModule} from "@angular/material/toolbar";
 import { HomePageComponent } from './home-page/home-page.component';
+import {NgOptimizedImage} from "@angular/common";
 
 @NgModule({
   declarations: [
@@ -32,23 +33,24 @@ import { HomePageComponent } from './home-page/home-page.component';
     EditInfoComponent,
     HomePageComponent
   ],
-  imports: [
-    BrowserModule,
-    HttpClientModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    FormsModule,
-    ReactiveFormsModule,
-    FlexLayoutModule,
-    MatButtonModule,
-    MatCardModule,
-    MatInputModule,
-    MatGridListModule,
-    MatListModule,
-    MatSelectModule,
-    MatTableModule,
-    MatToolbarModule,
-  ],
+    imports: [
+        BrowserModule,
+        HttpClientModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        FormsModule,
+        ReactiveFormsModule,
+        FlexLayoutModule,
+        MatButtonModule,
+        MatCardModule,
+        MatInputModule,
+        MatGridListModule,
+        MatListModule,
+        MatSelectModule,
+        MatTableModule,
+        MatToolbarModule,
+        NgOptimizedImage,
+    ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true},
   ],
