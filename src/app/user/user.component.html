@@ -1,67 +1,50 @@
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<style>
-  body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-  }
 
-  .container {
-    width: 60%;
-    margin: 0 auto;
-  }
-
-  .content {
-    text-align: center;
-    padding: 20px;
-    background-color: #f0f0f0;
-
-  }
-</style>
-<body>
 <div class="container">
   <div class="content">
     <h1>Profile</h1>
-
   </div>
   <div style="display:flex;flex-direction: row">
     <div style="width: 50%;">
-        <img src="/assets/defaultPicture.png" alt="Zdjęcie użytkownika" style="margin-left: 250px">
+      <img src="/assets/defaultPicture.png" alt="Zdjęcie użytkownika" style="margin-left: 250px">
     </div>
     <div style="width: 50%;">
 
-        <div *ngIf="userCredentials && !editInfo">
-          <mat-card-content> Name: {{userCredentials?.userName}} </mat-card-content>
-          <p></p>
-          <mat-card-content> Age: {{userCredentials?.age}} </mat-card-content>
-          <p></p>
-          <mat-card-content> Gender: {{formatGender()}} </mat-card-content>
-          <p></p>
-          <mat-card-content> Height: {{userCredentials?.height.value}}cm</mat-card-content>
-          <p></p>
-          <mat-card-content> Activity: {{formatActivity()}} </mat-card-content>
-        </div>
-        <section *ngIf="userCredentials">
-          <button mat-raised-button color="primary" *ngIf="showEditInformationButton"
-                  (click)="openEditInformationForm()">
-            Edit
-          </button>
-          <app-edit-info *ngIf="editInfo" (onSave)="saveEditInfo($event)" (onCancel)="cancelInfo()"
-                         [userCredentials]="userCredentials"></app-edit-info>
-        </section>
-
+      <div *ngIf="userCredentials && !editInfo">
+        <mat-card-content> Name: {{userCredentials?.userName}} </mat-card-content>
+        <p></p>
+        <mat-card-content> Age: {{userCredentials?.age}} </mat-card-content>
+        <p></p>
+        <mat-card-content> Gender: {{formatGender()}} </mat-card-content>
+        <p></p>
+        <mat-card-content> Height: {{userCredentials?.height.value}}cm</mat-card-content>
+        <p></p>
+        <mat-card-content> Activity: {{formatActivity()}} </mat-card-content>
+      </div>
+      <p></p>
+      <section *ngIf="userCredentials">
+        <button mat-raised-button color="primary" *ngIf="showEditInformationButton"
+                (click)="openEditInformationForm()">
+          Edit profile
+        </button>
+        <p></p>
+        <app-edit-info *ngIf="editInfo" (onSave)="saveEditInfo($event)" (onCancel)="cancelInfo()"
+                       [userCredentials]="userCredentials"></app-edit-info>
+        <button mat-raised-button color="primary" *ngIf="showEditInformationButton">
+                <!--(click)="openEditInformationForm()"-->
+          Add photo
+        </button>
+      </section>
+      <div class="button">
         <section *ngIf="!userCredentials">
           <button mat-raised-button color="primary" *ngIf="showAddInformationButton"
-
                   (click)="openAddInformationForm()">
-            Add
+            Add your profile
           </button>
           <app-add-info *ngIf="addInfo" (onSave)="saveInfo($event)" (onCancel)="cancelInfo()"></app-add-info>
         </section>
-
+      </div>
     </div>
   </div>
 </div>
-</body>
 
 

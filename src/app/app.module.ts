@@ -22,6 +22,8 @@ import {MatTableModule} from "@angular/material/table";
 import {MatToolbarModule} from "@angular/material/toolbar";
 import { HomePageComponent } from './home-page/home-page.component';
 import {NgOptimizedImage} from "@angular/common";
+import { GoalsComponent } from './goals/goals.component';
+import { GoalsAddInfoComponent } from './goals/goals-add-info/goals-add-info.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import {NgOptimizedImage} from "@angular/common";
     UserComponent,
     AddInfoComponent,
     EditInfoComponent,
-    HomePageComponent
+    HomePageComponent,
+    GoalsComponent,
+    GoalsAddInfoComponent
   ],
     imports: [
         BrowserModule,
