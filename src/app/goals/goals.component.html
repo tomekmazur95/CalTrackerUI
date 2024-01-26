@@ -3,18 +3,19 @@
     <h1>Goals</h1>
   </div>
   <p></p>
-  <div style="font-weight: bold">
-    ADD YOUR NUTRITIONAL PROFILE
+  <div *ngIf="!userTdee" style="font-style: italic; text-align: center">
+    You didn't add any goals. Please click button to add your goals
   </div>
-  <!--<div class="button">
+  <p></p>
+  <div class="button">
     <section *ngIf="!userTdee">
       <button mat-raised-button color="primary" *ngIf="showAddInformationButton"
               (click)="openAddInformationForm()">
-        <div style="font-weight: bold">
-          ADD YOUR NUTRITIONAL PROFILE
+        <div>
+          Add your goals
         </div>
       </button>
-      <app-add-info *ngIf="addInfo" (onSave)="saveInfo($event)" (onCancel)="cancelInfo()"></app-add-info>
+      <app-goals-add-info *ngIf="addInfo" (onSave)="saveInfo($event)" (onCancel)="cancelInfo()"></app-goals-add-info>
     </section>
-  </div>-->
+  </div>
 </div>

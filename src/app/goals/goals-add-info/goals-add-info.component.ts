@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, EventEmitter, Output} from '@angular/core';
 
 @Component({
   selector: 'app-goals-add-info',
@@ -7,4 +7,15 @@ import { Component } from '@angular/core';
 })
 export class GoalsAddInfoComponent {
 
+  @Output() onSave= new EventEmitter();
+  @Output() onCancel = new EventEmitter();
+
+
+  save() {
+    this.onSave.emit();
+  }
+
+  cancel() {
+    this.onCancel.emit();
+  }
 }
