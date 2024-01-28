@@ -1,4 +1,5 @@
 import {Component, EventEmitter, Output} from '@angular/core';
+import {FormControl, FormGroup} from "@angular/forms";
 
 @Component({
   selector: 'app-goals-add-info',
@@ -18,4 +19,10 @@ export class GoalsAddInfoComponent {
   cancel() {
     this.onCancel.emit();
   }
+
+  goalsForm = new FormGroup( {
+    currentWeight: new FormControl(null),
+    activity: new FormControl()
+  })
+
 }

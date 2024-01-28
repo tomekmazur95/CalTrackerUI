@@ -2,20 +2,19 @@
   <div class="content">
     <h1>Goals</h1>
   </div>
+
   <p></p>
-  <div *ngIf="!userTdee" style="font-style: italic; text-align: center">
-    You didn't add any goals. Please click button to add your goals
+  <div *ngIf="!userTdee && !addInfo" style="font-style: italic; text-align: center">
+    You didn't add any goals
   </div>
   <p></p>
-  <div class="button">
-    <section *ngIf="!userTdee">
-      <button mat-raised-button color="primary" *ngIf="showAddInformationButton"
-              (click)="openAddInformationForm()">
-        <div>
-          Add your goals
-        </div>
-      </button>
-      <app-goals-add-info *ngIf="addInfo" (onSave)="saveInfo($event)" (onCancel)="cancelInfo()"></app-goals-add-info>
-    </section>
-  </div>
+  <section *ngIf="!userTdee">
+    <div class="button">
+    <button  mat-raised-button color="primary" *ngIf="showAddInformationButton"
+            (click)="openAddInformationForm()">
+        Add your goals
+    </button>
+    </div>
+    <app-goals-add-info *ngIf="addInfo" (onSave)="saveInfo($event)" (onCancel)="cancelInfo()"></app-goals-add-info>
+  </section>
 </div>
