@@ -24,6 +24,7 @@ import {HomePageComponent} from './home-page/home-page.component';
 import {NgOptimizedImage} from "@angular/common";
 import {GoalsComponent} from './goals/goals.component';
 import {GoalsAddInfoComponent} from './goals/goals-add-info/goals-add-info.component';
+import {MAT_RADIO_DEFAULT_OPTIONS, MatRadioModule} from "@angular/material/radio";
 
 @NgModule({
   declarations: [
@@ -37,26 +38,29 @@ import {GoalsAddInfoComponent} from './goals/goals-add-info/goals-add-info.compo
     GoalsComponent,
     GoalsAddInfoComponent
   ],
-  imports: [
-    BrowserModule,
-    HttpClientModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    FormsModule,
-    ReactiveFormsModule,
-    FlexLayoutModule,
-    MatButtonModule,
-    MatCardModule,
-    MatInputModule,
-    MatGridListModule,
-    MatListModule,
-    MatSelectModule,
-    MatTableModule,
-    MatToolbarModule,
-    NgOptimizedImage,
-  ],
+    imports: [
+        BrowserModule,
+        HttpClientModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        FormsModule,
+        ReactiveFormsModule,
+        FlexLayoutModule,
+        MatButtonModule,
+        MatCardModule,
+        MatInputModule,
+        MatGridListModule,
+        MatListModule,
+        MatSelectModule,
+        MatTableModule,
+        MatToolbarModule,
+        NgOptimizedImage,
+        MatRadioModule,
+    ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true},
+    { provide: MAT_RADIO_DEFAULT_OPTIONS,
+      useValue: { color: 'primary' },}
   ],
   bootstrap: [AppComponent]
 })

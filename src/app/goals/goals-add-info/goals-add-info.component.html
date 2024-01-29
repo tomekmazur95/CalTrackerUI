@@ -1,13 +1,76 @@
-
-  <form [formGroup]="goalsForm">
-    Enter your current weight
+<form [formGroup]="goalsForm">
+  <div class="line-separator">
+    <h2>1. Enter your current weight:</h2>
     <p></p>
     <mat-form-field>
+      <mat-label>
+        Weight [kg]
+      </mat-label>
       <input matInput type="number" formControlName="currentWeight">
     </mat-form-field>
-
-  </form>
-  <div class="button">
-    <button type="button" mat-raised-button color="primary" (click)="save()">Save</button>
-    <button type="button" mat-raised-button color="warn" (click)="cancel()">Cancel</button>
+    <p></p>
+    <h2>2. How would you describe your normal daily activities?</h2>
+    <mat-radio-group formControlName="activity">
+        <label>
+          <mat-radio-button value="SEDENTARY">
+             <span style="cursor: pointer">
+                <b>SEDENTARY</b> : Spend most of the day sitting (e.g. bank teller, desk job) / little to no exercise
+            </span>
+          </mat-radio-button>
+        </label>
+        <br>
+        <p></p>
+        <label>
+          <mat-radio-button value="LIGHTLY ACTIVE">
+            <span style="cursor: pointer">
+              <b>LIGHTLY ACTIVE</b> : Spend a good part of the day on your feet (e.g. teacher, salesperson) / light exercise 1-3 days per week
+            </span>
+          </mat-radio-button>
+        </label>
+        <br>
+        <p></p>
+        <label>
+          <mat-radio-button value="MODERATELY ACTIVE">
+            <span style="cursor: pointer">
+              <b>MODERATELY ACTIVE</b> : Spend a good part of the day doing some physical activity (e.g. food server, postal carrier) / moderate exercise 3-5 days per week
+            </span>
+          </mat-radio-button>
+        </label>
+        <br>
+        <p></p>
+        <label>
+          <mat-radio-button value="VERY ACTIVE">
+            <span style="cursor: pointer">
+               <b>VERY ACTIVE</b> : Spend most of the day doing heavy physical activity (e.g. bike messenger) / heavy exercise 6-7 days per week
+            </span>
+          </mat-radio-button>
+        </label>
+        <br>
+        <p></p>
+        <label>
+          <mat-radio-button value="EXTRA ACTIVE">
+            <span style="cursor: pointer">
+               <b>EXTRA ACTIVE</b> : Spend most of the day doing hard labor job (e.g. bricklayer) / exercise 2 times per day
+            </span>
+          </mat-radio-button>
+        </label>
+        <br>
+    </mat-radio-group>
+    <p></p>
+    <h2>3. What is your goal?</h2>
+    <mat-form-field>
+      <mat-label>
+        Goal
+      </mat-label>
+      <mat-select formControlName="goal">
+        <mat-option *ngFor="let goal of goalList" [value]="goal">
+          {{goal}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
   </div>
+</form>
+<div class="button">
+  <button type="button" mat-raised-button color="primary" (click)="save()">Save</button>
+  <button type="button" mat-raised-button color="warn" (click)="cancel()">Cancel</button>
+</div>

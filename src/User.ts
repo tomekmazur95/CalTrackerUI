@@ -12,11 +12,16 @@ export enum Gender {
 }
 
 export enum MeasureType {
-  HEIGHT = 'HEIGHT'
+  HEIGHT = 'HEIGHT',
+  CURRENT_WEIGHT = 'CURRENT_WEIGHT',
+  ENERGY_TDEE = 'ENERGY_TDEE',
+  ENERGY_SURPLUS = 'ENERGY_SURPLUS',
+  ENERGY_DEFICIT = 'ENERGY_DEFICIT'
 }
 
 export enum Unit {
-  CENTIMETERS = 'CENTIMETERS'
+  CENTIMETERS = 'CENTIMETERS',
+  KILOGRAMS = 'KILOGRAMS'
 }
 
 export interface Measurement {
