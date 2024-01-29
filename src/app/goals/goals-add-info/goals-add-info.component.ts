@@ -19,27 +19,27 @@ export class GoalsAddInfoComponent {
   @Output() onSave = new EventEmitter();
   @Output() onCancel = new EventEmitter();
 
-  userWeight: MeasurementRequest = new MeasurementRequest();
-  userGoal: MeasureType;
-  userActivity: Activity;
+  weight: MeasurementRequest = new MeasurementRequest();
+  activity: Activity;
+  goal: MeasureType;
 
   save() {
-    this.userWeight.value = this.goalsForm.get('currentWeight').value;
-    this.userWeight.unit = Unit.KILOGRAMS;
-    this.userWeight.type = MeasureType.CURRENT_WEIGHT;
+    this.weight.value = this.goalsForm.get('currentWeight').value;
+    this.weight.unit = Unit.KILOGRAMS;
+    this.weight.type = MeasureType.CURRENT_WEIGHT;
 
-    this.userActivity = this.fetchActivity(this.goalsForm.get('activity').value);
+    this.activity = this.fetchActivity(this.goalsForm.get('activity').value);
 
-    this.userGoal = this.fetchGoal(this.goalsForm.get('goal').value);
-    console.log(this.userWeight)
-    console.log(this.userActivity)
-    console.log(this.userGoal)
-    const userData = {
-      userWeight: this.userWeight,
-      userActivity: this.userActivity,
-      userGoal: this.userGoal,
+    this.goal = this.fetchGoal(this.goalsForm.get('goal').value);
+    console.log(this.weight)
+    console.log(this.activity)
+    console.log(this.goal)
+    const userGoals = {
+      weight: this.weight,
+      activity: this.activity,
+      goal: this.goal,
     }
-    this.onSave.emit(userData);
+    this.onSave.emit(userGoals);
   }
 
   cancel() {

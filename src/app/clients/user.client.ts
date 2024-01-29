@@ -21,6 +21,6 @@ export class UserClient {
   }
 
   editUserCredentials(userId: number, requestBody: User) {
-    return this.http.put<User>(`http://localhost:8080/users/${userId}` , requestBody)
+    return this.http.put<User>(`http://localhost:8080/users/${userId}`, requestBody);
   }
 }
