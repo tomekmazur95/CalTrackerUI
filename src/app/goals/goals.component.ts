@@ -2,17 +2,15 @@ import {Component, OnInit} from '@angular/core';
 import {CaloriesCalculatorClient} from "../clients/calories-calculator.client";
 import {UserClient} from "../clients/user.client";
 import {UserInfoResponse} from "../../AuthenticationResponse";
-import {ResponseTdeeDTO} from "../../ResponseTdeeDTO";
-import {Activity, MeasureType, Unit} from "../../User";
-import {ResponseSurplusDTO} from "../../ResponseSurplusDTO";
-import {ResponseDeficitDTO} from "../../ResponseDeficitDTO";
+import {Activity, MeasureType} from "../../User";
+import {MeasurementRequest} from "../../MeasurementRequest";
+import {MeasurementClient} from "../clients/measurement.client";
+import {ResponseMeasurementDTO} from "../../ResponseMeasurementDTO";
+import {RequestUserActivityDTO} from "../../RequestUserActivityDTO";
+import {ResponseUserActivityDTO} from "../../ResponseUserActivityDTO";
+import {finalize, switchMap, tap} from "rxjs";
 
-class MeasurementRequest {
-  type: MeasureType;
-  value: number;
-  unit: Unit;
-  date: string;
-}
+
 class userGoals {
   weight: MeasurementRequest;
   activity: Activity;
@@ -27,15 +25,18 @@ class userGoals {
 export class GoalsComponent implements OnInit {
 
   public userInfo: UserInfoResponse;
-  public userTdee: ResponseTdeeDTO;
-  public addInfo: boolean;
-  public userSurplus: ResponseSurplusDTO;
-  public userDeficit: ResponseDeficitDTO;
+  public userTdee;
+  public addInfo: boolean = false;
+  public userSurplus;
+  public userDeficit;
+  public userLastWeight: ResponseMeasurementDTO;
+  public userActivity: ResponseUserActivityDTO;
   showAddInformationButton: boolean = true;
 
   constructor(
     private userClient: UserClient,
     private calCalcClient: CaloriesCalculatorClient,
+    private measurementClient: MeasurementClient,
   ) {
   }
 
@@ -45,6 +46,7 @@ export class GoalsComponent implements OnInit {
       this.calCalcClient.getUserTdee(this.userInfo.id)
         .subscribe(tdee => this.userTdee = tdee)
     });
+    console.log(this.addInfo);
   }
 
   openAddInformationForm() {
@@ -53,12 +55,40 @@ export class GoalsComponent implements OnInit {
   }
 
   saveInfo(data: userGoals) {
-    console.log(data);
-    this.calCalcClient.calculateTdee(this.userInfo.id).subscribe(tdee => this.userTdee = tdee);
-    this.calCalcClient.calculateSurplus(this.userInfo.id).subscribe(surplus => this.userSurplus = surplus);
-    this.calCalcClient.calculateDeficit(this.userInfo.id).subscribe(deficit => this.userDeficit = deficit);
+    const reqActivityDTO = new RequestUserActivityDTO();
+    reqActivityDTO.activity = data.activity;
 
-    this.showAddInformationButton = true;
+    this.measurementClient.createMeasurement(this.userInfo.id, data.weight)
+      .pipe(
+        switchMap((measurement) => {
+          this.userLastWeight = measurement;
+          return this.userClient.editUserActivity(this.userInfo.id, reqActivityDTO);
+        }),
+        switchMap((activity) => {
+          this.userActivity = activity;
+          if (data.goal === MeasureType.ENERGY_TDEE) {
+            return this.calCalcClient.calculateTdee(this.userInfo.id);
+          } else if (data.goal === MeasureType.ENERGY_SURPLUS) {
+            return this.calCalcClient.calculateSurplus(this.userInfo.id);
+          } else if (data.goal === MeasureType.ENERGY_DEFICIT) {
+            return this.calCalcClient.calculateDeficit(this.userInfo.id);
+          }
+        }),
+        tap((result) => {
+          if (data.goal === MeasureType.ENERGY_TDEE) {
+            this.userTdee = result;
+          } else if (data.goal === MeasureType.ENERGY_SURPLUS) {
+            this.userSurplus = result;
+          } else if (data.goal === MeasureType.ENERGY_DEFICIT) {
+            this.userDeficit = result;
+          }
+        }),
+        finalize(() => {
+        })
+      )
+      .subscribe(
+      );
+    this.showAddInformationButton = false;
     this.addInfo = false;
   }
 

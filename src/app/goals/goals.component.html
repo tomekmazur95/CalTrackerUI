@@ -4,7 +4,7 @@
   </div>
 
   <p></p>
-  <div *ngIf="!userTdee && !addInfo" style="font-style: italic; text-align: center">
+  <div *ngIf="(!userTdee && !userSurplus && !userDeficit) && !addInfo" style="font-style: italic; text-align: center">
     You didn't add any goals
   </div>
   <p></p>

@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
-import {HttpClient, HttpHeaders} from "@angular/common/http";
-import {catchError, tap, throwError} from "rxjs";
-import {AuthenticationRequest, AuthenticationResponse, RegisterRequest} from "../../AuthenticationResponse";
+import {HttpClient} from "@angular/common/http";
+import {catchError, throwError} from "rxjs";
+import {AuthenticationResponse} from "../../AuthenticationResponse";
 
 @Injectable({
     providedIn: 'root'
