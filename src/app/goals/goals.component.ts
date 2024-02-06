@@ -6,7 +6,7 @@ import {Activity, MeasureType, UserGoalsResponseDTO} from "../../User";
 import {MeasurementRequest} from "../../MeasurementRequest";
 import {MeasurementClient} from "../clients/measurement.client";
 import {RequestUserActivityDTO} from "../../RequestUserActivityDTO";
-import {finalize, switchMap, tap} from "rxjs";
+import {switchMap} from "rxjs";
 import {GoalsClient} from "../clients/goals.client";
 
 
