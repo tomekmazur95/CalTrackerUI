@@ -4,6 +4,7 @@ import {ResponseTdeeDTO} from "../../ResponseTdeeDTO";
 import {Observable} from "rxjs";
 import {ResponseSurplusDTO} from "../../ResponseSurplusDTO";
 import {ResponseDeficitDTO} from "../../ResponseDeficitDTO";
+import {MeasureType, UserGoalsResponseDTO} from "../../User";
 
 @Injectable({
   providedIn: 'root'
@@ -13,19 +14,19 @@ export class CaloriesCalculatorClient {
   constructor(private http: HttpClient) {
   }
 
-  getUserTdee(userId: number): Observable<ResponseTdeeDTO> {
-    return this.http.get<ResponseTdeeDTO>(`http://localhost:8080/user/${userId}/calories/tdee`);
+  getUserTdee(userId: number): Observable<UserGoalsResponseDTO> {
+    return this.http.get<UserGoalsResponseDTO>(`http://localhost:8080/user/${userId}/calories/tdee`);
   }
 
-  calculateTdee(userId: number):Observable<ResponseTdeeDTO>{
-    return this.http.post<ResponseTdeeDTO>(`http://localhost:8080/user/${userId}/calories/tdee`, null);
+  calculate(userId: number, goal: MeasureType):Observable<UserGoalsResponseDTO>{
+    return this.http.post<UserGoalsResponseDTO>(`http://localhost:8080/user/${userId}/calories?goal=${goal}`, null);
   }
-
-  calculateSurplus(userId: number): Observable<ResponseSurplusDTO> {
-    return this.http.post<ResponseSurplusDTO>(`http://localhost:8080/user/${userId}/calories/surplus`, null);
+/*
+  calculateSurplus(userId: number): Observable<UserGoalsResponseDTO> {
+    return this.http.post<UserGoalsResponseDTO>(`http://localhost:8080/user/${userId}/calories/surplus`, null);
   }
 
   calculateDeficit(userId: number): Observable<ResponseDeficitDTO> {
-    return this.http.post<ResponseDeficitDTO>(`http://localhost:8080/user/${userId}/calories/deficit`, null);
-  }
+    return this.http.post<UserGoalsResponseDTO>(`http://localhost:8080/user/${userId}/calories/deficit`, null);
+  }*/
 }

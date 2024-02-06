@@ -2,13 +2,12 @@ import {Component, OnInit} from '@angular/core';
 import {CaloriesCalculatorClient} from "../clients/calories-calculator.client";
 import {UserClient} from "../clients/user.client";
 import {UserInfoResponse} from "../../AuthenticationResponse";
-import {Activity, MeasureType} from "../../User";
+import {Activity, MeasureType, UserGoalsResponseDTO} from "../../User";
 import {MeasurementRequest} from "../../MeasurementRequest";
 import {MeasurementClient} from "../clients/measurement.client";
-import {ResponseMeasurementDTO} from "../../ResponseMeasurementDTO";
 import {RequestUserActivityDTO} from "../../RequestUserActivityDTO";
-import {ResponseUserActivityDTO} from "../../ResponseUserActivityDTO";
 import {finalize, switchMap, tap} from "rxjs";
+import {GoalsClient} from "../clients/goals.client";
 
 
 class userGoals {
@@ -25,28 +24,24 @@ class userGoals {
 export class GoalsComponent implements OnInit {
 
   public userInfo: UserInfoResponse;
-  public userTdee;
+  public userGoals: UserGoalsResponseDTO;
   public addInfo: boolean = false;
-  public userSurplus;
-  public userDeficit;
-  public userLastWeight: ResponseMeasurementDTO;
-  public userActivity: ResponseUserActivityDTO;
   showAddInformationButton: boolean = true;
 
   constructor(
     private userClient: UserClient,
     private calCalcClient: CaloriesCalculatorClient,
     private measurementClient: MeasurementClient,
+    private goalsClient: GoalsClient
   ) {
   }
 
   ngOnInit(): void {
     this.userClient.getUserInfo().subscribe(userInfo => {
       this.userInfo = userInfo;
-      this.calCalcClient.getUserTdee(this.userInfo.id)
-        .subscribe(tdee => this.userTdee = tdee)
+      this.goalsClient.findUserGoals(this.userInfo.id)
+        .subscribe(userGoals => this.userGoals = userGoals)
     });
-    console.log(this.addInfo);
   }
 
   openAddInformationForm() {
@@ -57,36 +52,16 @@ export class GoalsComponent implements OnInit {
   saveInfo(data: userGoals) {
     const reqActivityDTO = new RequestUserActivityDTO();
     reqActivityDTO.activity = data.activity;
-
     this.measurementClient.createMeasurement(this.userInfo.id, data.weight)
       .pipe(
         switchMap((measurement) => {
-          this.userLastWeight = measurement;
           return this.userClient.editUserActivity(this.userInfo.id, reqActivityDTO);
         }),
         switchMap((activity) => {
-          this.userActivity = activity;
-          if (data.goal === MeasureType.ENERGY_TDEE) {
-            return this.calCalcClient.calculateTdee(this.userInfo.id);
-          } else if (data.goal === MeasureType.ENERGY_SURPLUS) {
-            return this.calCalcClient.calculateSurplus(this.userInfo.id);
-          } else if (data.goal === MeasureType.ENERGY_DEFICIT) {
-            return this.calCalcClient.calculateDeficit(this.userInfo.id);
-          }
+            return this.calCalcClient.calculate(this.userInfo.id, data.goal);
         }),
-        tap((result) => {
-          if (data.goal === MeasureType.ENERGY_TDEE) {
-            this.userTdee = result;
-          } else if (data.goal === MeasureType.ENERGY_SURPLUS) {
-            this.userSurplus = result;
-          } else if (data.goal === MeasureType.ENERGY_DEFICIT) {
-            this.userDeficit = result;
-          }
-        }),
-        finalize(() => {
-        })
       )
-      .subscribe(
+      .subscribe(e => this.userGoals = e
       );
     this.showAddInformationButton = false;
     this.addInfo = false;

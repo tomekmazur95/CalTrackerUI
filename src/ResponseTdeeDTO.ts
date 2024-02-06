@@ -1,3 +1,5 @@
+import {Measurement} from "./User";
+
 export interface ResponseTdeeDTO {
-  tdee: string,
+  tdee: Measurement,
 }

@@ -1,3 +1,5 @@
+import {Measurement} from "./User";
+
 export interface ResponseDeficitDTO{
-  deficit: string;
+  deficit: Measurement;
 }

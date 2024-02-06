@@ -40,3 +40,9 @@ export interface User {
   activity: Activity,
   height: Measurement
 }
+
+export interface UserGoalsResponseDTO {
+  goal : Measurement,
+  currentWeight: Measurement,
+  activity: Activity
+}
