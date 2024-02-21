@@ -31,9 +31,6 @@ export class GoalsAddInfoComponent {
     this.activity = this.fetchActivity(this.goalsForm.get('activity').value);
 
     this.goal = this.fetchGoal(this.goalsForm.get('goal').value);
-    console.log(this.weight)
-    console.log(this.activity)
-    console.log(this.goal)
     const userGoals = {
       weight: this.weight,
       activity: this.activity,

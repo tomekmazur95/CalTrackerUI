@@ -2,11 +2,11 @@ import {Component, OnInit} from '@angular/core';
 import {CaloriesCalculatorClient} from "../clients/calories-calculator.client";
 import {UserClient} from "../clients/user.client";
 import {UserInfoResponse} from "../../AuthenticationResponse";
-import {Activity, MeasureType, UserGoalsResponseDTO} from "../../User";
+import {Activity, MeasureType, User, UserGoalsResponseDTO} from "../../User";
 import {MeasurementRequest} from "../../MeasurementRequest";
 import {MeasurementClient} from "../clients/measurement.client";
 import {RequestUserActivityDTO} from "../../RequestUserActivityDTO";
-import {finalize, switchMap, tap} from "rxjs";
+import {switchMap} from "rxjs";
 import {GoalsClient} from "../clients/goals.client";
 
 
@@ -26,6 +26,7 @@ export class GoalsComponent implements OnInit {
   public userInfo: UserInfoResponse;
   public userGoals: UserGoalsResponseDTO;
   public addInfo: boolean = false;
+  public userCredentials : User;
   showAddInformationButton: boolean = true;
 
   constructor(
@@ -39,7 +40,8 @@ export class GoalsComponent implements OnInit {
   ngOnInit(): void {
     this.userClient.getUserInfo().subscribe(userInfo => {
       this.userInfo = userInfo;
-      this.goalsClient.findUserGoals(this.userInfo.id)
+      this.userClient.getUserCredentials(this.userInfo.id).subscribe(e => this.userCredentials = e)
+      this.goalsClient.findUserGoals(this.userCredentials.id)
         .subscribe(userGoals => this.userGoals = userGoals)
     });
   }
@@ -52,13 +54,13 @@ export class GoalsComponent implements OnInit {
   saveInfo(data: userGoals) {
     const reqActivityDTO = new RequestUserActivityDTO();
     reqActivityDTO.activity = data.activity;
-    this.measurementClient.createMeasurement(this.userInfo.id, data.weight)
+    this.measurementClient.createMeasurement(this.userCredentials.id, data.weight)
       .pipe(
         switchMap((measurement) => {
-          return this.userClient.editUserActivity(this.userInfo.id, reqActivityDTO);
+          return this.userClient.editUserActivity(this.userCredentials.id, reqActivityDTO);
         }),
         switchMap((activity) => {
-            return this.calCalcClient.calculate(this.userInfo.id, data.goal);
+            return this.calCalcClient.calculate(this.userCredentials.id, data.goal);
         }),
       )
       .subscribe(e => this.userGoals = e
