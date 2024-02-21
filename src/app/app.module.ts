@@ -19,6 +19,12 @@ import {EditInfoComponent} from './user/edit-info/edit-info.component';
 import {MatListModule} from "@angular/material/list";
 import {MatSelectModule} from "@angular/material/select";
 import {MatTableModule} from "@angular/material/table";
+import {MatToolbarModule} from "@angular/material/toolbar";
+import {HomePageComponent} from './home-page/home-page.component';
+import {NgOptimizedImage} from "@angular/common";
+import {GoalsComponent} from './goals/goals.component';
+import {GoalsAddInfoComponent} from './goals/goals-add-info/goals-add-info.component';
+import {MAT_RADIO_DEFAULT_OPTIONS, MatRadioModule} from "@angular/material/radio";
 
 @NgModule({
   declarations: [
@@ -27,26 +33,34 @@ import {MatTableModule} from "@angular/material/table";
     RegisterPageComponent,
     UserComponent,
     AddInfoComponent,
-    EditInfoComponent
+    EditInfoComponent,
+    HomePageComponent,
+    GoalsComponent,
+    GoalsAddInfoComponent
   ],
-  imports: [
-    BrowserModule,
-    HttpClientModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    FormsModule,
-    ReactiveFormsModule,
-    FlexLayoutModule,
-    MatButtonModule,
-    MatCardModule,
-    MatInputModule,
-    MatGridListModule,
-    MatListModule,
-    MatSelectModule,
-    MatTableModule,
-  ],
+    imports: [
+        BrowserModule,
+        HttpClientModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        FormsModule,
+        ReactiveFormsModule,
+        FlexLayoutModule,
+        MatButtonModule,
+        MatCardModule,
+        MatInputModule,
+        MatGridListModule,
+        MatListModule,
+        MatSelectModule,
+        MatTableModule,
+        MatToolbarModule,
+        NgOptimizedImage,
+        MatRadioModule,
+    ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true},
+    { provide: MAT_RADIO_DEFAULT_OPTIONS,
+      useValue: { color: 'primary' },}
   ],
   bootstrap: [AppComponent]
 })

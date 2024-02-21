@@ -3,6 +3,8 @@ import { Injectable } from '@angular/core';
 import {User} from "../../User";
 import {Observable} from "rxjs";
 import {UserInfoResponse} from "../../AuthenticationResponse";
+import {RequestUserActivityDTO} from "../../RequestUserActivityDTO";
+import {ResponseUserActivityDTO} from "../../ResponseUserActivityDTO";
 
 @Injectable({
   providedIn: 'root',
@@ -21,6 +23,10 @@ export class UserClient {
   }
 
   editUserCredentials(userId: number, requestBody: User) {
-    return this.http.put<User>(`http://localhost:8080/users/${userId}` , requestBody)
+    return this.http.put<User>(`http://localhost:8080/users/${userId}`, requestBody);
+  }
+
+  editUserActivity(userId: number, requestBody: RequestUserActivityDTO) {
+    return this.http.patch<ResponseUserActivityDTO>(`http://localhost:8080/users/${userId}`, requestBody);
   }
 }

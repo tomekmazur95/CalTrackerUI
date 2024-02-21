@@ -6,7 +6,7 @@ class User {
   userName: string;
   gender: Gender;
   activity: Activity;
-  birthDate: string;
+  age: number;
   height: MeasurementRequest;
 }
 
@@ -55,7 +55,7 @@ export class AddInfoComponent {
 
   userForm = new FormGroup({
     userName: new FormControl(''),
-    birthDate: new FormControl(''),
+    age: new FormControl(null),
     gender: new FormControl(''),
     height: new FormControl(null),
     activity: new FormControl(''),
@@ -67,7 +67,7 @@ export class AddInfoComponent {
 
   save() {
     this.userFormRequest.userName = this.userForm.get('userName').value;
-    this.userFormRequest.birthDate = this.userForm.get('birthDate').value;
+    this.userFormRequest.age = this.userForm.get('age').value;
     this.userFormRequest.gender = this.fetchGender(this.userForm.get('gender').value);
     this.userFormRequest.height = this.fetchHeight(this.userForm.get('height').value);
     this.userFormRequest.activity = this.fetchActivity(this.userForm.get('activity').value);
