@@ -15,4 +15,5 @@ export class CaloriesCalculatorClient {
   calculate(userId: number, goal: MeasureType):Observable<UserGoalsResponseDTO>{
     return this.http.post<UserGoalsResponseDTO>(`http://localhost:8080/user/${userId}/calories?goal=${goal}`, null);
   }
+
 }

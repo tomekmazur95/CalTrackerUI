@@ -27,9 +27,7 @@ export class GoalsAddInfoComponent {
     this.weight.value = this.goalsForm.get('currentWeight').value;
     this.weight.unit = Unit.KILOGRAMS;
     this.weight.type = MeasureType.CURRENT_WEIGHT;
-
     this.activity = this.fetchActivity(this.goalsForm.get('activity').value);
-
     this.goal = this.fetchGoal(this.goalsForm.get('goal').value);
     const userGoals = {
       weight: this.weight,
