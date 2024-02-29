@@ -40,9 +40,11 @@ export class GoalsComponent implements OnInit {
   ngOnInit(): void {
     this.userClient.getUserInfo().subscribe(userInfo => {
       this.userInfo = userInfo;
-      this.userClient.getUserCredentials(this.userInfo.id).subscribe(e => this.userCredentials = e)
-      this.goalsClient.findUserGoals(this.userCredentials.id)
-        .subscribe(userGoals => this.userGoals = userGoals)
+      this.userClient.getUserCredentials(this.userInfo.id).subscribe(e =>  {
+        this.userCredentials = e;
+        this.goalsClient.findUserGoals(this.userCredentials.id)
+          .subscribe(userGoals => this.userGoals = userGoals)
+      })
     });
   }
 
