@@ -1,10 +1,25 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {UserClient} from "../clients/user.client";
+import {UserInfoResponse} from "../../AuthenticationResponse";
 
 @Component({
   selector: 'app-home-page',
   templateUrl: './home-page.component.html',
   styleUrl: './home-page.component.css'
 })
-export class HomePageComponent {
+export class HomePageComponent implements OnInit {
+
+   public userInfo: UserInfoResponse;
+
+  constructor(
+    private userClient: UserClient
+  ) {
+  }
+
+  ngOnInit(): void {
+    this.userClient.getUserInfo().subscribe(userInfo => {
+      this.userInfo = userInfo;
+    })
+  }
 
 }
