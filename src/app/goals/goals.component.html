@@ -1,3 +1,8 @@
+<style>
+  table, th, td {
+    border: 1px solid black;
+  }
+</style>
 <div class="container">
   <div class="content">
     <h1>Goals</h1>
@@ -5,13 +10,30 @@
 
   <p></p>
   <div *ngIf="userGoals">
-    Your fitness goals : tutaj bedzie tabela z zapotrzebowaniem kaloryczym : ile kalori dziennie, pozniej podzial na makroskladniki, mikroskladniki, posilki
+    //Your fitness goals : tabela z zapotrzebowaniem kaloryczym : ile kalori dziennie, pozniej podzial na
+    makroskladniki, mikroskladniki, posilki
+    <br>
+    <p></p>
+    <table style="width: 50%">
+      <tr>
+        <th>Calories [kcal]</th>
+        <th>Carbohydrates 50% [g]</th>
+        <th>Proteins 30% [g]</th>
+        <th>Fat 20% [g]</th>
+      </tr>
+      <tr>
+        <td>{{userGoals?.goal.value}}</td>
+        <td>[NULL]</td>
+        <td>[NULL]</td>
+        <td>[NULL]</td>
+      </tr>
+    </table>
+
     <p></p>
     Weight : {{userGoals?.currentWeight.value}} kg.
     <p></p>
-    Activity : {{userGoals?.activity}} .
-    <p></p>
-    Calories : {{userGoals?.goal.value}} calories
+    Activity : {{userGoals?.activity}}
+
     <p></p>
   </div>
 
@@ -21,10 +43,10 @@
   <p></p>
   <section *ngIf="!userGoals">
     <div class="button">
-    <button  mat-raised-button color="primary" *ngIf="showAddInformationButton"
-            (click)="openAddInformationForm()">
+      <button mat-raised-button color="primary" *ngIf="showAddInformationButton"
+              (click)="openAddInformationForm()">
         Add your goals
-    </button>
+      </button>
     </div>
     <app-goals-add-info *ngIf="addInfo" (onSave)="saveInfo($event)" (onCancel)="cancelInfo()"></app-goals-add-info>
   </section>
