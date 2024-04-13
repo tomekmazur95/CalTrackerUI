@@ -10,22 +10,28 @@
 
   <p></p>
   <div *ngIf="userGoals">
-    //Your fitness goals : tabela z zapotrzebowaniem kaloryczym : ile kalori dziennie, pozniej podzial na
-    makroskladniki, mikroskladniki, posilki
+    Your fitness goals : tabela z zapotrzebowaniem kaloryczym : ile kalori dziennie, pozniej podzial na
+    makroskladniki
     <br>
     <p></p>
     <table style="width: 50%">
       <tr>
         <th>Calories [kcal]</th>
-        <th>Carbohydrates 50% [g]</th>
-        <th>Proteins 30% [g]</th>
-        <th>Fat 20% [g]</th>
+        <th>Carbohydrates [g]</th>
+        <th>Proteins [g]</th>
+        <th>Fat [g]</th>
       </tr>
       <tr>
-        <td>{{userGoals?.goal.value}}</td>
-        <td>[NULL]</td>
-        <td>[NULL]</td>
-        <td>[NULL]</td>
+        <td>100%</td>
+        <td>{{carbo}}%</td>
+        <td>{{protein}}%</td>
+        <td>{{fat}}%</td>
+      </tr>
+      <tr>
+      <td>{{userGoals?.goal.value}}</td>
+      <td>{{userGoals?.nutrition.carbohydrate}}</td>
+      <td>{{userGoals?.nutrition.protein}}</td>
+      <td>{{userGoals?.nutrition.fat}}</td>
       </tr>
     </table>
 

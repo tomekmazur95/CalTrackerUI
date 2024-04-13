@@ -40,9 +40,21 @@ export interface User {
   activity: Activity,
   height: Measurement
 }
+export interface ResponseNutritionDTO {
+  id: number,
+  fatPercent: number,
+  carbohydratePercent: number,
+  proteinPercent: number,
+  fat: number,
+  carbohydrate: number,
+  protein: number,
+  unit: Unit,
+  date: string
+}
 
 export interface UserGoalsResponseDTO {
   goal : Measurement,
   currentWeight: Measurement,
-  activity: Activity
+  activity: Activity,
+  nutrition: ResponseNutritionDTO
 }

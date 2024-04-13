@@ -26,8 +26,11 @@ export class GoalsComponent implements OnInit {
   public userInfo: UserInfoResponse;
   public userGoals: UserGoalsResponseDTO;
   public addInfo: boolean = false;
-  public userCredentials : User;
+  public userCredentials: User;
   showAddInformationButton: boolean = true;
+  public carbo: number;
+  public protein: number;
+  public fat: number;
 
   constructor(
     private userClient: UserClient,
@@ -40,10 +43,13 @@ export class GoalsComponent implements OnInit {
   ngOnInit(): void {
     this.userClient.getUserInfo().subscribe(userInfo => {
       this.userInfo = userInfo;
-      this.userClient.getUserCredentials(this.userInfo.id).subscribe(e =>  {
+      this.userClient.getUserCredentials(this.userInfo.id).subscribe(e => {
         this.userCredentials = e;
         this.goalsClient.findUserGoals(this.userCredentials.id)
-          .subscribe(userGoals => this.userGoals = userGoals)
+          .subscribe(userGoals => {
+            this.userGoals = userGoals
+            this.mapperToPercent();
+          })
       })
     });
   }
@@ -62,10 +68,13 @@ export class GoalsComponent implements OnInit {
           return this.userClient.editUserActivity(this.userCredentials.id, reqActivityDTO);
         }),
         switchMap((activity) => {
-            return this.calCalcClient.calculate(this.userCredentials.id, data.goal);
+          return this.calCalcClient.calculate(this.userCredentials.id, data.goal);
         }),
       )
-      .subscribe(e => this.userGoals = e
+      .subscribe(e => {
+          this.userGoals = e
+          this.mapperToPercent();
+        }
       );
     this.showAddInformationButton = false;
     this.addInfo = false;
@@ -74,5 +83,11 @@ export class GoalsComponent implements OnInit {
   cancelInfo() {
     this.showAddInformationButton = true;
     this.addInfo = false;
+  }
+
+  mapperToPercent() {
+    this.carbo = this.userGoals.nutrition.carbohydratePercent * 100;
+    this.protein = this.userGoals.nutrition.proteinPercent * 100;
+    this.fat = this.userGoals.nutrition.fatPercent * 100;
   }
 }
