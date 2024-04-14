@@ -1,3 +1,5 @@
+import {MeasurementRequest} from "./MeasurementRequest";
+
 export enum Activity {
   SEDENTARY='SEDENTARY',
   LIGHTLY_ACTIVE='LIGHTLY_ACTIVE',
@@ -57,4 +59,16 @@ export interface UserGoalsResponseDTO {
   currentWeight: Measurement,
   activity: Activity,
   nutrition: ResponseNutritionDTO
+}
+
+export interface userGoals {
+  weight: MeasurementRequest;
+  activity: Activity;
+  goal: MeasureType;
+}
+
+export class Nutrition {
+  carbs: number;
+  protein: number;
+  fat: number;
 }
