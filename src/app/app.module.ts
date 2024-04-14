@@ -25,6 +25,7 @@ import {NgOptimizedImage} from "@angular/common";
 import {GoalsComponent} from './goals/goals.component';
 import {GoalsAddInfoComponent} from './goals/goals-add-info/goals-add-info.component';
 import {MAT_RADIO_DEFAULT_OPTIONS, MatRadioModule} from "@angular/material/radio";
+import { TableGoalsComponent } from './goals/table-goals/table-goals.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import {MAT_RADIO_DEFAULT_OPTIONS, MatRadioModule} from "@angular/material/radio
     EditInfoComponent,
     HomePageComponent,
     GoalsComponent,
-    GoalsAddInfoComponent
+    GoalsAddInfoComponent,
+    TableGoalsComponent
   ],
     imports: [
         BrowserModule,

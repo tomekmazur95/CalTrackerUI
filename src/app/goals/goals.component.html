@@ -1,46 +1,19 @@
-<style>
-  table, th, td {
-    border: 1px solid black;
-  }
-</style>
+
 <div class="container">
   <div class="content">
-    <h1>Goals</h1>
+    <h1>Daily nutritional goals</h1>
   </div>
 
   <p></p>
   <div *ngIf="userGoals">
-    Your fitness goals : tabela z zapotrzebowaniem kaloryczym : ile kalori dziennie, pozniej podzial na
-    makroskladniki
-    <br>
-    <p></p>
-    <table style="width: 50%">
-      <tr>
-        <th>Calories [kcal]</th>
-        <th>Carbohydrates [g]</th>
-        <th>Proteins [g]</th>
-        <th>Fat [g]</th>
-      </tr>
-      <tr>
-        <td>100%</td>
-        <td>{{carbo}}%</td>
-        <td>{{protein}}%</td>
-        <td>{{fat}}%</td>
-      </tr>
-      <tr>
-      <td>{{userGoals?.goal.value}}</td>
-      <td>{{userGoals?.nutrition.carbohydrate}}</td>
-      <td>{{userGoals?.nutrition.protein}}</td>
-      <td>{{userGoals?.nutrition.fat}}</td>
-      </tr>
-    </table>
+    <app-table-goals [userGoals]="userGoals" [nutrition]="nutrition"></app-table-goals>
 
     <p></p>
     Weight : {{userGoals?.currentWeight.value}} kg.
+
     <p></p>
     Activity : {{userGoals?.activity}}
 
-    <p></p>
   </div>
 
   <div *ngIf="!addInfo && !userGoals" style="font-style: italic; text-align: center">
