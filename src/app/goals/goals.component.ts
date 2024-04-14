@@ -2,19 +2,11 @@ import {Component, OnInit} from '@angular/core';
 import {CaloriesCalculatorClient} from "../clients/calories-calculator.client";
 import {UserClient} from "../clients/user.client";
 import {UserInfoResponse} from "../../AuthenticationResponse";
-import {Activity, MeasureType, User, UserGoalsResponseDTO} from "../../User";
-import {MeasurementRequest} from "../../MeasurementRequest";
+import {Nutrition, User, userGoals, UserGoalsResponseDTO} from "../../User";
 import {MeasurementClient} from "../clients/measurement.client";
 import {RequestUserActivityDTO} from "../../RequestUserActivityDTO";
 import {switchMap} from "rxjs";
 import {GoalsClient} from "../clients/goals.client";
-
-
-class userGoals {
-  weight: MeasurementRequest;
-  activity: Activity;
-  goal: MeasureType;
-}
 
 @Component({
   selector: 'app-goals',
@@ -27,10 +19,8 @@ export class GoalsComponent implements OnInit {
   public userGoals: UserGoalsResponseDTO;
   public addInfo: boolean = false;
   public userCredentials: User;
-  showAddInformationButton: boolean = true;
-  public carbo: number;
-  public protein: number;
-  public fat: number;
+  public showAddInformationButton: boolean = true;
+  public nutrition = new Nutrition();
 
   constructor(
     private userClient: UserClient,
@@ -86,8 +76,8 @@ export class GoalsComponent implements OnInit {
   }
 
   mapperToPercent() {
-    this.carbo = this.userGoals.nutrition.carbohydratePercent * 100;
-    this.protein = this.userGoals.nutrition.proteinPercent * 100;
-    this.fat = this.userGoals.nutrition.fatPercent * 100;
+    this.nutrition.carbs = this.userGoals.nutrition.carbohydratePercent * 100;
+    this.nutrition.protein = this.userGoals.nutrition.proteinPercent * 100;
+    this.nutrition.fat = this.userGoals.nutrition.fatPercent * 100;
   }
 }
