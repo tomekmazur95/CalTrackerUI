@@ -1,0 +1,20 @@
+table {
+  width: 50%;
+  border-collapse: collapse;
+  background-color: rgba(241, 241, 241, 0.8)
+}
+
+.text-left {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+tr {
+  border: 2px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+.nutrition {
+  width: 30%;
+  border: 1px solid #ddd;
+}
