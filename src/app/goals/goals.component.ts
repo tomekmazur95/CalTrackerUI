@@ -1,12 +1,17 @@
 import {Component, OnInit} from '@angular/core';
 import {CaloriesCalculatorClient} from "../clients/calories-calculator.client";
 import {UserClient} from "../clients/user.client";
-import {UserInfoResponse} from "../../AuthenticationResponse";
-import {Nutrition, User, userGoals, UserGoalsResponseDTO} from "../../User";
 import {MeasurementClient} from "../clients/measurement.client";
-import {RequestUserActivityDTO} from "../../RequestUserActivityDTO";
 import {switchMap} from "rxjs";
 import {GoalsClient} from "../clients/goals.client";
+import {
+  Nutrition,
+  RequestUserActivityDTO,
+  User,
+  UserGoals,
+  UserGoalsResponseDTO,
+  UserInfoResponse
+} from "../shared/modules";
 
 @Component({
   selector: 'app-goals',
@@ -49,7 +54,7 @@ export class GoalsComponent implements OnInit {
     this.showAddInformationButton = false;
   }
 
-  saveInfo(data: userGoals) {
+  saveInfo(data: UserGoals) {
     const reqActivityDTO = new RequestUserActivityDTO();
     reqActivityDTO.activity = data.activity;
     this.measurementClient.createMeasurement(this.userCredentials.id, data.weight)

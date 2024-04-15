@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {catchError, throwError} from "rxjs";
-import {AuthenticationResponse} from "../../AuthenticationResponse";
+import {AuthenticationResponse} from "../shared/modules";
 
 @Injectable({
     providedIn: 'root'

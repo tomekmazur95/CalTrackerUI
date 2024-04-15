@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {UserClient} from "../clients/user.client";
-import {UserInfoResponse} from "../../AuthenticationResponse";
+import {UserInfoResponse} from "../shared/modules";
 
 @Component({
   selector: 'app-home-page',

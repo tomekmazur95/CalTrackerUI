@@ -1,4 +1,4 @@
-import {MeasurementRequest} from "./MeasurementRequest";
+
 
 export enum Activity {
   SEDENTARY='SEDENTARY',
@@ -61,14 +61,63 @@ export interface UserGoalsResponseDTO {
   nutrition: ResponseNutritionDTO
 }
 
-export interface userGoals {
+export interface UserGoals {
   weight: MeasurementRequest;
   activity: Activity;
   goal: MeasureType;
 }
+
+export class UserGoals {
+  weight: MeasurementRequest;
+  activity: Activity;
+  goal: MeasureType;
+}
+
 
 export class Nutrition {
   carbs: number;
   protein: number;
   fat: number;
 }
+
+export interface AuthenticationResponse {
+  token: string
+}
+export interface AuthenticationRequest {
+  email : string,
+  password: string
+}
+export interface RegisterRequest {
+  email: string,
+  password: string
+}
+
+export interface UserInfoResponse {
+  id: number,
+  email: string
+}
+
+export interface MeasurementRequest {
+  type: MeasureType;
+  value: number;
+  unit: Unit;
+  date: string;
+}
+
+export class RequestUserActivityDTO {
+  activity: Activity;
+}
+
+export interface ResponseMeasurementDTO {
+  id: number;
+  type: MeasureType;
+  value: number;
+  unit: Unit;
+  date: string
+}
+
+export interface ResponseUserActivityDTO {
+  id: number;
+  activity: Activity;
+}
+

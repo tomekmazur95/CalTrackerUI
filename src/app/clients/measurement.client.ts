@@ -1,7 +1,6 @@
 import {Injectable} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
-import {ResponseMeasurementDTO} from "../../ResponseMeasurementDTO";
-import {MeasurementRequest} from "../../MeasurementRequest";
+import {MeasurementRequest, ResponseMeasurementDTO} from "../shared/modules";
 
 
 @Injectable({

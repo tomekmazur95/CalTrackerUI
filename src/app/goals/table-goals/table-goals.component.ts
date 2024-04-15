@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {Nutrition, UserGoalsResponseDTO} from "../../../User";
+import {Nutrition, UserGoalsResponseDTO} from "../../shared/modules";
 
 @Component({
   selector: 'app-table-goals',
