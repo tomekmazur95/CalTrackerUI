@@ -6,7 +6,7 @@
 
   <p></p>
   <div *ngIf="userGoals">
-    <app-table-goals [userGoals]="userGoals" [nutrition]="nutrition"></app-table-goals>
+    <app-table-goals [userGoals]="userGoals"></app-table-goals>
 
     <p></p>
     Weight : {{userGoals?.currentWeight.value}} kg.

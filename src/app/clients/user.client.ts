@@ -1,7 +1,7 @@
 import {HttpClient} from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import {Observable} from "rxjs";
-import {RequestUserActivityDTO, ResponseUserActivityDTO, User, UserInfoResponse} from "../shared/modules";
+import {RequestUserActivityDTO, ResponseUserActivityDTO, User, UserInfoResponse} from "../shared/models";
 
 @Injectable({
   providedIn: 'root',

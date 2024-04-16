@@ -1,6 +1,6 @@
 import {Injectable} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
-import {UserGoalsResponseDTO} from "../shared/modules";
+import {UserGoalsResponseDTO} from "../shared/models";
 
 
 @Injectable({

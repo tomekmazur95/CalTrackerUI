@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {UserClient} from "../clients/user.client";
-import {Activity, Gender, User, UserInfoResponse} from "../shared/modules";
+import {Activity, Gender, User, UserInfoResponse} from "../shared/models";
 
 @Component({
   selector: 'app-user',

@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {MeasureType, UserGoalsResponseDTO} from "../shared/modules";
+import {MeasureType, UserGoalsResponseDTO} from "../shared/models";
 
 @Injectable({
   providedIn: 'root'

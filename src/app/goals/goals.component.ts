@@ -5,13 +5,12 @@ import {MeasurementClient} from "../clients/measurement.client";
 import {switchMap} from "rxjs";
 import {GoalsClient} from "../clients/goals.client";
 import {
-  Nutrition,
   RequestUserActivityDTO,
   User,
   UserGoals,
   UserGoalsResponseDTO,
   UserInfoResponse
-} from "../shared/modules";
+} from "../shared/models";
 
 @Component({
   selector: 'app-goals',
@@ -25,7 +24,6 @@ export class GoalsComponent implements OnInit {
   public addInfo: boolean = false;
   public userCredentials: User;
   public showAddInformationButton: boolean = true;
-  public nutrition = new Nutrition();
 
   constructor(
     private userClient: UserClient,
@@ -43,7 +41,6 @@ export class GoalsComponent implements OnInit {
         this.goalsClient.findUserGoals(this.userCredentials.id)
           .subscribe(userGoals => {
             this.userGoals = userGoals
-            this.mapperToPercent();
           })
       })
     });
@@ -68,7 +65,6 @@ export class GoalsComponent implements OnInit {
       )
       .subscribe(e => {
           this.userGoals = e
-          this.mapperToPercent();
         }
       );
     this.showAddInformationButton = false;
@@ -78,11 +74,5 @@ export class GoalsComponent implements OnInit {
   cancelInfo() {
     this.showAddInformationButton = true;
     this.addInfo = false;
-  }
-
-  mapperToPercent() {
-    this.nutrition.carbs = this.userGoals.nutrition.carbohydratePercent * 100;
-    this.nutrition.protein = this.userGoals.nutrition.proteinPercent * 100;
-    this.nutrition.fat = this.userGoals.nutrition.fatPercent * 100;
   }
 }

@@ -74,12 +74,6 @@ export class UserGoals {
 }
 
 
-export class Nutrition {
-  carbs: number;
-  protein: number;
-  fat: number;
-}
-
 export interface AuthenticationResponse {
   token: string
 }

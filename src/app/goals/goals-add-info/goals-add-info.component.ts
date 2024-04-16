@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Output} from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
-import {Activity, MeasureType, Unit} from "../../shared/modules";
+import {Activity, MeasureType, Unit} from "../../shared/models";
 
 class MeasurementRequest {
   type: MeasureType;

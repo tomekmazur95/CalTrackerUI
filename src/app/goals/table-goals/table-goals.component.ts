@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {Nutrition, UserGoalsResponseDTO} from "../../shared/modules";
+import { UserGoalsResponseDTO} from "../../shared/models";
 
 @Component({
   selector: 'app-table-goals',
@@ -9,5 +9,4 @@ import {Nutrition, UserGoalsResponseDTO} from "../../shared/modules";
 export class TableGoalsComponent {
 
   @Input() userGoals: UserGoalsResponseDTO;
-  @Input() nutrition: Nutrition;
 }

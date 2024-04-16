@@ -6,16 +6,16 @@
   <tr>
     <td class="text-left"> Carbohydrates </td>
     <td>{{userGoals?.nutrition.carbohydrate}}g</td>
-    <td class="nutrition">{{nutrition.carbs}}%</td>
+    <td class="nutrition">{{userGoals?.nutrition.carbohydratePercent | percent}}</td>
   </tr>
   <tr>
     <td class="text-left">Proteins</td>
     <td>{{userGoals?.nutrition.protein}}g</td>
-    <td class="nutrition">{{nutrition.protein}}%</td>
+    <td class="nutrition">{{userGoals?.nutrition.proteinPercent | percent}}</td>
   </tr>
   <tr>
     <td class="text-left">Fat </td>
     <td>{{userGoals?.nutrition.fat}}g</td>
-    <td class="nutrition">{{nutrition.fat}}%</td>
+    <td class="nutrition">{{userGoals?.nutrition.fatPercent | percent}}</td>
   </tr>
 </table>
