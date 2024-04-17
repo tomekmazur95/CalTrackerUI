@@ -8,6 +8,10 @@
   <div *ngIf="userGoals">
     <app-table-goals [userGoals]="userGoals"></app-table-goals>
 
+    <button mat-raised-button color="primary" *ngIf="showAddInformationButton" style="margin-left: 40%; margin-top: 10px"
+            (click)="openAddInformationForm()">
+      Edit
+    </button>
     <p></p>
     Weight : {{userGoals?.currentWeight.value}} kg.
 
