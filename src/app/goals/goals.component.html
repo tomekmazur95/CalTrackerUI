@@ -1,4 +1,3 @@
-
 <div class="container">
   <div class="content">
     <h1>Daily nutritional goals</h1>
@@ -8,8 +7,9 @@
   <div *ngIf="userGoals">
     <app-table-goals [userGoals]="userGoals"></app-table-goals>
 
-    <button mat-raised-button color="primary" *ngIf="showAddInformationButton" style="margin-left: 40%; margin-top: 10px"
-            (click)="openAddInformationForm()">
+    <button mat-raised-button color="primary"
+            style="margin-left: 40%; margin-top: 10px"
+            (click)="openDialog()">
       Edit
     </button>
     <p></p>

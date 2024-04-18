@@ -26,6 +26,8 @@ import {GoalsComponent} from './goals/goals.component';
 import {GoalsAddInfoComponent} from './goals/goals-add-info/goals-add-info.component';
 import {MAT_RADIO_DEFAULT_OPTIONS, MatRadioModule} from "@angular/material/radio";
 import { TableGoalsComponent } from './goals/table-goals/table-goals.component';
+import { DialogEditNutritionsComponent } from './goals/table-goals/dialog-edit-nutritions/dialog-edit-nutritions.component';
+import {MatDialogActions, MatDialogClose, MatDialogContent} from "@angular/material/dialog";
 
 @NgModule({
   declarations: [
@@ -38,27 +40,31 @@ import { TableGoalsComponent } from './goals/table-goals/table-goals.component';
     HomePageComponent,
     GoalsComponent,
     GoalsAddInfoComponent,
-    TableGoalsComponent
+    TableGoalsComponent,
+    DialogEditNutritionsComponent
   ],
-    imports: [
-        BrowserModule,
-        HttpClientModule,
-        AppRoutingModule,
-        BrowserAnimationsModule,
-        FormsModule,
-        ReactiveFormsModule,
-        FlexLayoutModule,
-        MatButtonModule,
-        MatCardModule,
-        MatInputModule,
-        MatGridListModule,
-        MatListModule,
-        MatSelectModule,
-        MatTableModule,
-        MatToolbarModule,
-        NgOptimizedImage,
-        MatRadioModule,
-    ],
+  imports: [
+    BrowserModule,
+    HttpClientModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule,
+    FlexLayoutModule,
+    MatButtonModule,
+    MatCardModule,
+    MatInputModule,
+    MatGridListModule,
+    MatListModule,
+    MatSelectModule,
+    MatTableModule,
+    MatToolbarModule,
+    NgOptimizedImage,
+    MatRadioModule,
+    MatDialogContent,
+    MatDialogActions,
+    MatDialogClose,
+  ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true},
     { provide: MAT_RADIO_DEFAULT_OPTIONS,

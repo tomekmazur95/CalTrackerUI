@@ -1,0 +1,24 @@
+<mat-dialog-content>
+  <p>What's your preferred carbohydrate percent?</p>
+  <mat-form-field>
+    <mat-label>Carbs</mat-label>
+    <input matInput [(ngModel)]="carbs">
+  </mat-form-field>
+
+  <p>What's your preferred protein percent?</p>
+  <mat-form-field>
+    <mat-label>Protein</mat-label>
+    <input matInput [(ngModel)]="protein">
+  </mat-form-field>
+
+  <p>What's your preferred fat percent?</p>
+  <mat-form-field>
+    <mat-label>Fat</mat-label>
+    <input matInput [(ngModel)]="fat">
+  </mat-form-field>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button mat-raised-button color="warn" (click)="onNoClick()">Cancel</button>
+  <button mat-raised-button color="primary" [mat-dialog-close]="data.editNutritions">Ok</button>
+</mat-dialog-actions>

@@ -11,6 +11,18 @@ import {
   UserGoalsResponseDTO,
   UserInfoResponse
 } from "../shared/models";
+import {MatDialog} from "@angular/material/dialog";
+import {DialogEditNutritionsComponent} from "./table-goals/dialog-edit-nutritions/dialog-edit-nutritions.component";
+
+export interface Nutritons{
+  carbs: number;
+  fat: number;
+  protein: number;
+}
+export interface DialogData {
+  userGoals: UserGoalsResponseDTO,
+  editNutritions: Nutritons
+}
 
 @Component({
   selector: 'app-goals',
@@ -24,12 +36,14 @@ export class GoalsComponent implements OnInit {
   public addInfo: boolean = false;
   public userCredentials: User;
   public showAddInformationButton: boolean = true;
+  public editNutritions:  Nutritons;
 
   constructor(
     private userClient: UserClient,
     private calCalcClient: CaloriesCalculatorClient,
     private measurementClient: MeasurementClient,
-    private goalsClient: GoalsClient
+    private goalsClient: GoalsClient,
+    public dialog: MatDialog
   ) {
   }
 
@@ -50,6 +64,18 @@ export class GoalsComponent implements OnInit {
     this.addInfo = true;
     this.showAddInformationButton = false;
   }
+
+  openDialog(): void {
+      const dialogRef = this.dialog.open(DialogEditNutritionsComponent, {
+        data: {userGoals: this.userGoals, editNutritions: this.editNutritions}
+      });
+
+      dialogRef.afterClosed().subscribe(result => {
+        console.log('the dialog was closed');
+        this.editNutritions =  result;
+      })
+  }
+
 
   saveInfo(data: UserGoals) {
     const reqActivityDTO = new RequestUserActivityDTO();
