@@ -73,6 +73,7 @@ export class GoalsComponent implements OnInit {
       dialogRef.afterClosed().subscribe(result => {
         console.log('the dialog was closed');
         this.editNutritions =  result;
+        console.log(this.editNutritions);
       })
   }
 

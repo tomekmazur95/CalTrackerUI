@@ -1,24 +1,32 @@
 <mat-dialog-content>
-  <p>What's your preferred carbohydrate percent?</p>
-  <mat-form-field>
-    <mat-label>Carbs</mat-label>
-    <input matInput [(ngModel)]="carbs">
-  </mat-form-field>
+    <p>What's your preferred carbohydrate percent?</p>
+    <mat-form-field style="display: flex; width: 40%">
+        <mat-label>Carbs</mat-label>
+        <input matInput [(ngModel)]="carbs" type="number" min="0" max="100" (input)="checkSumOfNutrition($event)">
+    </mat-form-field>
 
-  <p>What's your preferred protein percent?</p>
-  <mat-form-field>
-    <mat-label>Protein</mat-label>
-    <input matInput [(ngModel)]="protein">
-  </mat-form-field>
-
-  <p>What's your preferred fat percent?</p>
-  <mat-form-field>
-    <mat-label>Fat</mat-label>
-    <input matInput [(ngModel)]="fat">
-  </mat-form-field>
+    <p>What's your preferred protein percent?</p>
+    <mat-form-field style="display: flex; width: 40%">
+        <mat-label>Protein</mat-label>
+        <input matInput [(ngModel)]="protein" type="number" min="0" max="100" (input)="checkSumOfNutrition($event)">
+    </mat-form-field>
+    <p>What's your preferred fat percent?</p>
+    <mat-form-field style="display: flex; width: 40%">
+        <mat-label>Fat</mat-label>
+        <input matInput [(ngModel)]="fat" type="number" min="0" max="100" (input)="checkSumOfNutrition($event)">
+    </mat-form-field>
 </mat-dialog-content>
-
+<p></p>
+<div style="display: flex;justify-content: left; align-items: center; margin-top: -5%">
+    <div style="font-size: 1rem; margin-left: 12px">
+        Total percentage must be 100 :
+    </div>
+    <div [ngStyle]="{'color': notValid ? 'red' : 'green' }">
+        <h1 style="margin-left: 10%; font-size: 2rem">{{sum}}%</h1>
+    </div>
+</div>
 <mat-dialog-actions>
-  <button mat-raised-button color="warn" (click)="onNoClick()">Cancel</button>
-  <button mat-raised-button color="primary" [mat-dialog-close]="data.editNutritions">Ok</button>
+    <!--  <button mat-raised-button color="warn" (click)="onNoClick()">Cancel</button>-->
+    <button mat-raised-button color="primary" (click)="closeDialog()" [disabled]="notValid" style="margin: auto">Save
+    </button>
 </mat-dialog-actions>
