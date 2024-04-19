@@ -2,18 +2,18 @@
     <p>What's your preferred carbohydrate percent?</p>
     <mat-form-field style="display: flex; width: 40%">
         <mat-label>Carbs</mat-label>
-        <input matInput [(ngModel)]="carbs" type="number" min="0" max="100" (input)="checkSumOfNutrition($event)">
+        <input matInput [(ngModel)]="carbs" type="number" min="0" max="100" (input)="checkSumOfNutrition()">
     </mat-form-field>
 
     <p>What's your preferred protein percent?</p>
     <mat-form-field style="display: flex; width: 40%">
         <mat-label>Protein</mat-label>
-        <input matInput [(ngModel)]="protein" type="number" min="0" max="100" (input)="checkSumOfNutrition($event)">
+        <input matInput [(ngModel)]="protein" type="number" min="0" max="100" (input)="checkSumOfNutrition()">
     </mat-form-field>
     <p>What's your preferred fat percent?</p>
     <mat-form-field style="display: flex; width: 40%">
         <mat-label>Fat</mat-label>
-        <input matInput [(ngModel)]="fat" type="number" min="0" max="100" (input)="checkSumOfNutrition($event)">
+        <input matInput [(ngModel)]="fat" type="number" min="0" max="100" (input)="checkSumOfNutrition()">
     </mat-form-field>
 </mat-dialog-content>
 <p></p>

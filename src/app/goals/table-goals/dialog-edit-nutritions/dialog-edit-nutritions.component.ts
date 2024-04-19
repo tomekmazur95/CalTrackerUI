@@ -26,11 +26,11 @@ export class DialogEditNutritionsComponent {
     }
 
     closeDialog() {
-        const result = {carbs: this.carbs, dupes: this.protein, fat: this.fat};
+        const result = {carbs: this.carbs, protein: this.protein, fat: this.fat};
         this.dialogRef.close(result);
     }
 
-    checkSumOfNutrition(event: any) {
+    checkSumOfNutrition() {
         this.sum = this.carbs + this.fat + this.protein;
         this.notValid = this.sum !== 100;
     }
