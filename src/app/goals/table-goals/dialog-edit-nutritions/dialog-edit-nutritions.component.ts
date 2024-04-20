@@ -1,6 +1,6 @@
 import {Component, Inject} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
-import {DialogData} from "../../goals.component";
+import {DialogData, Nutritons} from "../../../shared/models";
 
 @Component({
     selector: 'app-dialog-edit-nutritions',
@@ -26,7 +26,10 @@ export class DialogEditNutritionsComponent {
     }
 
     closeDialog() {
-        const result = {carbs: this.carbs, protein: this.protein, fat: this.fat};
+        const result = new Nutritons();
+        result.carbs = this.carbs/100;
+        result.protein = this.protein/100;
+        result.fat = this.fat/100;
         this.dialogRef.close(result);
     }
 
@@ -34,5 +37,4 @@ export class DialogEditNutritionsComponent {
         this.sum = this.carbs + this.fat + this.protein;
         this.notValid = this.sum !== 100;
     }
-
 }

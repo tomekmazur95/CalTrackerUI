@@ -5,6 +5,7 @@ import {MeasurementClient} from "../clients/measurement.client";
 import {switchMap} from "rxjs";
 import {GoalsClient} from "../clients/goals.client";
 import {
+  Nutritons,
   RequestUserActivityDTO,
   User,
   UserGoals,
@@ -13,16 +14,6 @@ import {
 } from "../shared/models";
 import {MatDialog} from "@angular/material/dialog";
 import {DialogEditNutritionsComponent} from "./table-goals/dialog-edit-nutritions/dialog-edit-nutritions.component";
-
-export interface Nutritons{
-  carbs: number;
-  fat: number;
-  protein: number;
-}
-export interface DialogData {
-  userGoals: UserGoalsResponseDTO,
-  editNutritions: Nutritons
-}
 
 @Component({
   selector: 'app-goals',
@@ -74,6 +65,9 @@ export class GoalsComponent implements OnInit {
         console.log('the dialog was closed');
         this.editNutritions =  result;
         console.log(this.editNutritions);
+   /*     if(this.editNutritions !== null) {
+          this.
+        }*/
       })
   }
 

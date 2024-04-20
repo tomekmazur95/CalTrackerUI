@@ -114,4 +114,13 @@ export interface ResponseUserActivityDTO {
   id: number;
   activity: Activity;
 }
+export class Nutritons{
+  carbs: number;
+  fat: number;
+  protein: number;
+}
+export interface DialogData {
+  userGoals: UserGoalsResponseDTO,
+  editNutritions: Nutritons
+}
 
