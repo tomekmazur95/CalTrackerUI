@@ -14,6 +14,7 @@ import {
 } from "../shared/models";
 import {MatDialog} from "@angular/material/dialog";
 import {DialogEditNutritionsComponent} from "./table-goals/dialog-edit-nutritions/dialog-edit-nutritions.component";
+import {NutritionClient} from "../clients/nutrition.client";
 
 @Component({
   selector: 'app-goals',
@@ -27,14 +28,15 @@ export class GoalsComponent implements OnInit {
   public addInfo: boolean = false;
   public userCredentials: User;
   public showAddInformationButton: boolean = true;
-  public editNutritions:  Nutritons;
+  public editNutritions: Nutritons;
 
   constructor(
     private userClient: UserClient,
     private calCalcClient: CaloriesCalculatorClient,
     private measurementClient: MeasurementClient,
     private goalsClient: GoalsClient,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private nutritiousClient: NutritionClient
   ) {
   }
 
@@ -57,18 +59,20 @@ export class GoalsComponent implements OnInit {
   }
 
   openDialog(): void {
-      const dialogRef = this.dialog.open(DialogEditNutritionsComponent, {
-        data: {userGoals: this.userGoals, editNutritions: this.editNutritions}
-      });
+    const dialogRef = this.dialog.open(DialogEditNutritionsComponent, {
+      data: {userGoals: this.userGoals, editNutritions: this.editNutritions}
+    });
 
-      dialogRef.afterClosed().subscribe(result => {
-        console.log('the dialog was closed');
-        this.editNutritions =  result;
-        console.log(this.editNutritions);
-   /*     if(this.editNutritions !== null) {
-          this.
-        }*/
-      })
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('the dialog was closed');
+      this.editNutritions = result;
+      if(this.editNutritions !== null) {
+             this.nutritiousClient.updateNutrition(this.userGoals.nutrition.id, this.editNutritions.carbs, this.editNutritions.protein, this.editNutritions.fat)
+               .subscribe(nutritions => {
+                 this.userGoals.nutrition = nutritions
+               });
+           }
+    })
   }
 
 
