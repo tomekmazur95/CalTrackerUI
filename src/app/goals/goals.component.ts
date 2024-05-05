@@ -65,13 +65,15 @@ export class GoalsComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('the dialog was closed');
-      this.editNutritions = result;
-      if(this.editNutritions !== null) {
-             this.nutritiousClient.updateNutrition(this.userGoals.nutrition.id, this.editNutritions.carbs, this.editNutritions.protein, this.editNutritions.fat)
-               .subscribe(nutritions => {
-                 this.userGoals.nutrition = nutritions
-               });
-           }
+      if (result) {
+        this.editNutritions = result;
+        if (this.editNutritions.fat !== null && this.editNutritions.carbs !== null && this.editNutritions.protein !== null) {
+          this.nutritiousClient.updateNutrition(this.userGoals.nutrition.id, this.editNutritions.carbs, this.editNutritions.protein, this.editNutritions.fat)
+            .subscribe(nutritions => {
+              this.userGoals.nutrition = nutritions
+            });
+        }
+      }
     })
   }
 
