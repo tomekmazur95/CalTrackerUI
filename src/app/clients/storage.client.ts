@@ -11,11 +11,11 @@ export class StorageClient {
   constructor(private http: HttpClient) {
   }
 
-  public uploadFile(uploadImageData: FormData) {
-    return this.http.post<number>('http://localhost:8080/images', uploadImageData);
+  public uploadFile(uploadImageData: FormData, userId: number) {
+    return this.http.post<number>(`http://localhost:8080/images/${userId}`, uploadImageData);
   }
 
-  public downloadFile(imageId: number) {
-    return this.http.get<Image>(`http://localhost:8080/images/${imageId}`)
+  public downloadFile(userId: number) {
+    return this.http.get<Image>(`http://localhost:8080/images/${userId}`)
   }
 }

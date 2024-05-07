@@ -36,7 +36,7 @@
                        [userCredentials]="userCredentials"></app-edit-info>
 
         <div *ngIf="showEditInformationButton">
-          <app-add-photo (onDownload)="onDownload($event)" (onUpload)="onUpload($event)"></app-add-photo>
+          <app-add-photo (onDownload)="onDownload($event)" (onUpload)="onUpload($event)" [userCredentials]="userCredentials"></app-add-photo>
         </div>
       </section>
       <div class="button">
