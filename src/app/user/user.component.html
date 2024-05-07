@@ -37,20 +37,6 @@
 
         <div *ngIf="showEditInformationButton">
           <app-add-photo (onDownload)="onDownload($event)" (onUpload)="onUpload($event)"></app-add-photo>
-
-<!--        <button type="button" mat-raised-button color="primary" (click)="fileInput.click()"
-                >Add photo
-        </button>
-        <input hidden (change)="onFileSelected($event)" #fileInput type="file">
-
-        <button type="button" mat-raised-button color="primary" (click)="onUpload()"
-               >Upload image
-        </button>
-
-
-        <button type="button" mat-raised-button color="primary" (click)="getImage()"
-                >Download image
-        </button>-->
         </div>
       </section>
       <div class="button">
