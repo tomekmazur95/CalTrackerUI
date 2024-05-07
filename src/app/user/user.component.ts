@@ -13,7 +13,6 @@ export class UserComponent implements OnInit {
   public userInfo: UserInfoResponse;
   public addInfo: boolean = false;
   public editInfo: boolean = false;
-  public selectedFile: File;
   retrievedImage: string;
   public response: number;
 
@@ -105,26 +104,4 @@ export class UserComponent implements OnInit {
     }
     return activityKey;
   }
-
-  onFileSelected(event: any): void {
-    this.selectedFile = event.target.files[0] ?? null;
-    console.log(this.selectedFile.name)
-  }
-
-  /*  onUpload() {
-      console.log(this.selectedFile);
-      const uploadImageData = new FormData();
-      uploadImageData.append('image', this.selectedFile, this.selectedFile.name);
-      this.storageClient.uploadFile(uploadImageData).subscribe(response => {
-        this.response = response;
-      })
-    }
-
-    getImage() {
-      this.storageClient.downloadFile(2).subscribe(response => {
-        this.retrieveResponse = response;
-        this.base64Data = this.retrieveResponse.imageData;
-        this.retrievedImage = 'data:image/jpeg;base64,' + this.base64Data;
-      })
-    }*/
 }
