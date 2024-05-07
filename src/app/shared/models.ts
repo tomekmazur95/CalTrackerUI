@@ -123,4 +123,10 @@ export interface DialogData {
   userGoals: UserGoalsResponseDTO,
   editNutritions: Nutritons
 }
+export interface Image {
+  id: number;
+  name: string;
+  type: string;
+  imageData: string;
+}
 

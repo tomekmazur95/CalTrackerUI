@@ -1,0 +1,13 @@
+<button type="button" mat-raised-button color="primary" (click)="fileInput.click()"
+        >Add photo
+</button>
+<input hidden (change)="onFileSelected($event)" #fileInput type="file">
+
+<button type="button" mat-raised-button color="primary" (click)="uploadImage()"
+        >Upload image
+</button>
+
+
+<button type="button" mat-raised-button color="primary" (click)="getImage()"
+        >Download image
+</button>

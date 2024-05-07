@@ -1,8 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {UserClient} from "../clients/user.client";
 import {Activity, Gender, User, UserInfoResponse} from "../shared/models";
-import {HttpClient} from "@angular/common/http";
-import {StorageClient} from "../clients/storage.client";
 
 @Component({
   selector: 'app-user',
@@ -16,18 +14,14 @@ export class UserComponent implements OnInit {
   public addInfo: boolean = false;
   public editInfo: boolean = false;
   public selectedFile: File;
-  public base64Data: any;
-  retrievedImage: any;
-  retrieveResponse: any;
-  public response: any;
+  retrievedImage: string;
+  public response: number;
 
   showAddInformationButton = true;
   showEditInformationButton = true;
 
   constructor(
     private userClient: UserClient,
-    private httpClient: HttpClient,
-    private storageClient: StorageClient,
   ) {
   }
 
@@ -65,6 +59,14 @@ export class UserComponent implements OnInit {
     this.userClient.editUserCredentials(this.userCredentials.id, data).subscribe(e => this.userCredentials = e);
     this.editInfo = false;
     this.showEditInformationButton = true;
+  }
+
+  onDownload(retrievedImage: any) {
+    this.retrievedImage = retrievedImage;
+  }
+
+  onUpload(response: number) {
+    this.response = response;
   }
 
   genderListMap: Map<string, Gender> = new Map([
@@ -109,23 +111,20 @@ export class UserComponent implements OnInit {
     console.log(this.selectedFile.name)
   }
 
-  onUpload() {
-    console.log(this.selectedFile);
-    const uploadImageData = new FormData();
-    uploadImageData.append('image', this.selectedFile, this.selectedFile.name);
-    this.storageClient.uploadFile(uploadImageData).subscribe(response => {
-      this.response = response;
-    })
-  }
+  /*  onUpload() {
+      console.log(this.selectedFile);
+      const uploadImageData = new FormData();
+      uploadImageData.append('image', this.selectedFile, this.selectedFile.name);
+      this.storageClient.uploadFile(uploadImageData).subscribe(response => {
+        this.response = response;
+      })
+    }
 
-  getImage() {
-    this.httpClient.get(`http://localhost:8080/images/1`)
-      .subscribe(
-        res => {
-          this.retrieveResponse = res;
-          this.base64Data = this.retrieveResponse.imageData;
-          this.retrievedImage = 'data:image/jpeg;base64,' + this.base64Data;
-        }
-      );
-  }
+    getImage() {
+      this.storageClient.downloadFile(2).subscribe(response => {
+        this.retrieveResponse = response;
+        this.base64Data = this.retrieveResponse.imageData;
+        this.retrievedImage = 'data:image/jpeg;base64,' + this.base64Data;
+      })
+    }*/
 }

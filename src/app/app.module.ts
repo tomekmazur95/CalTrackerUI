@@ -28,6 +28,7 @@ import {MAT_RADIO_DEFAULT_OPTIONS, MatRadioModule} from "@angular/material/radio
 import { TableGoalsComponent } from './goals/table-goals/table-goals.component';
 import { DialogEditNutritionsComponent } from './goals/table-goals/dialog-edit-nutritions/dialog-edit-nutritions.component';
 import {MatDialogActions, MatDialogClose, MatDialogContent} from "@angular/material/dialog";
+import { AddPhotoComponent } from './user/edit-info/add-photo/add-photo.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import {MatDialogActions, MatDialogClose, MatDialogContent} from "@angular/mater
     GoalsComponent,
     GoalsAddInfoComponent,
     TableGoalsComponent,
-    DialogEditNutritionsComponent
+    DialogEditNutritionsComponent,
+    AddPhotoComponent
   ],
   imports: [
     BrowserModule,

@@ -5,7 +5,7 @@
   <div style="display:flex;flex-direction: row">
     <div style="width: 50%;">
       <div *ngIf=retrievedImage>
-        <img [src]="retrievedImage" style="margin-left: 40%">
+        <img [src]="retrievedImage" style="margin-left: 40%" alt="Zdjęcie użytkownika">
       </div>
       <div *ngIf=!retrievedImage>
         <img src="/assets/defaultPicture.png" alt="Zdjęcie użytkownika" style="margin-left: 40%">
@@ -35,21 +35,23 @@
         <app-edit-info *ngIf="editInfo" (onSave)="saveEditInfo($event)" (onCancel)="cancelInfo()"
                        [userCredentials]="userCredentials"></app-edit-info>
 
+        <div *ngIf="showEditInformationButton">
+          <app-add-photo (onDownload)="onDownload($event)" (onUpload)="onUpload($event)"></app-add-photo>
 
-        <button type="button" mat-raised-button color="primary" (click)="fileInput.click()"
-                *ngIf="showEditInformationButton">Add photo
+<!--        <button type="button" mat-raised-button color="primary" (click)="fileInput.click()"
+                >Add photo
         </button>
         <input hidden (change)="onFileSelected($event)" #fileInput type="file">
 
         <button type="button" mat-raised-button color="primary" (click)="onUpload()"
-                *ngIf="showEditInformationButton">Upload image
+               >Upload image
         </button>
 
 
         <button type="button" mat-raised-button color="primary" (click)="getImage()"
-                *ngIf="showEditInformationButton">Download image
-        </button>
-
+                >Download image
+        </button>-->
+        </div>
       </section>
       <div class="button">
         <section *ngIf="!userCredentials">
