@@ -1,11 +1,15 @@
-
 <div class="container">
   <div class="content">
     <h1>Profile</h1>
   </div>
   <div style="display:flex;flex-direction: row">
     <div style="width: 50%;">
-      <img src="/assets/defaultPicture.png" alt="Zdjęcie użytkownika" style="margin-left: 40%">
+      <div *ngIf=retrievedImage>
+        <img [src]="retrievedImage" style="margin-left: 40%">
+      </div>
+      <div *ngIf=!retrievedImage>
+        <img src="/assets/defaultPicture.png" alt="Zdjęcie użytkownika" style="margin-left: 40%">
+      </div>
     </div>
     <div style="width: 50%;">
 
@@ -30,9 +34,22 @@
         <p></p>
         <app-edit-info *ngIf="editInfo" (onSave)="saveEditInfo($event)" (onCancel)="cancelInfo()"
                        [userCredentials]="userCredentials"></app-edit-info>
-        <button mat-raised-button color="primary" *ngIf="showEditInformationButton">
-          Add photo
+
+
+        <button type="button" mat-raised-button color="primary" (click)="fileInput.click()"
+                *ngIf="showEditInformationButton">Add photo
         </button>
+        <input hidden (change)="onFileSelected($event)" #fileInput type="file">
+
+        <button type="button" mat-raised-button color="primary" (click)="onUpload()"
+                *ngIf="showEditInformationButton">Upload image
+        </button>
+
+
+        <button type="button" mat-raised-button color="primary" (click)="getImage()"
+                *ngIf="showEditInformationButton">Download image
+        </button>
+
       </section>
       <div class="button">
         <section *ngIf="!userCredentials">

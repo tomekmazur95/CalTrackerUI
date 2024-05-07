@@ -17,3 +17,7 @@
   justify-content: center;
   display: flex;
 }
+img {
+  max-width: 271px;
+  max-height: 274px;
+}
