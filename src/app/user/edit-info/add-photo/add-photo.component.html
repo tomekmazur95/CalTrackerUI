@@ -2,11 +2,14 @@
         >Add photo
 </button>
 <input hidden (change)="onFileSelected($event)" #fileInput type="file">
+<div *ngIf="selectedFile && !retrievedImage" style="color: green; margin-top: 15px; margin-bottom: 15px">
+    Uploaded image: {{selectedFile.name}}
+</div>
 
-<button type="button" mat-raised-button color="primary" (click)="uploadImage()"
-        >Upload image
+<button *ngIf="selectedFile && !retrievedImage" type="button" mat-raised-button color="primary" (click)="uploadImage()"
+        >Click here to save
 </button>
 
-<button type="button" mat-raised-button color="primary" (click)="getImage()"
+<!--<button type="button" mat-raised-button color="primary" (click)="getImage()"
         >Download image
-</button>
+</button>-->
