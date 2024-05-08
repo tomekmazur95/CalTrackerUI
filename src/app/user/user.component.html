@@ -1,55 +1,58 @@
 <div class="container">
-  <div class="content">
-    <h1>Profile</h1>
-  </div>
-  <div style="display:flex;flex-direction: row">
-    <div style="width: 50%;">
-      <div *ngIf=retrievedImage>
-        <img [src]="retrievedImage" style="margin-left: 40%" alt="Zdjęcie użytkownika">
-      </div>
-      <div *ngIf=!retrievedImage>
-        <img src="/assets/defaultPicture.png" alt="Zdjęcie użytkownika" style="margin-left: 40%">
-      </div>
+    <div class="content">
+        <h1>Profile</h1>
     </div>
-    <div style="width: 50%;">
-
-      <div *ngIf="userCredentials && !editInfo">
-        <p></p>
-        <mat-card-content> Name: {{userCredentials?.userName}} </mat-card-content>
-        <p></p>
-        <mat-card-content> Age: {{userCredentials?.age}} </mat-card-content>
-        <p></p>
-        <mat-card-content> Gender: {{formatGender()}} </mat-card-content>
-        <p></p>
-        <mat-card-content> Height: {{userCredentials?.height.value}}cm</mat-card-content>
-        <p></p>
-        <mat-card-content> Activity: {{formatActivity()}} </mat-card-content>
-      </div>
-      <p></p>
-      <section *ngIf="userCredentials">
-        <button mat-raised-button color="primary" *ngIf="showEditInformationButton"
-                (click)="openEditInformationForm()">
-          Edit profile
-        </button>
-        <p></p>
-        <app-edit-info *ngIf="editInfo" (onSave)="saveEditInfo($event)" (onCancel)="cancelInfo()"
-                       [userCredentials]="userCredentials"></app-edit-info>
-
-        <div *ngIf="showEditInformationButton">
-          <app-add-photo (onDownload)="onDownload($event)" (onUpload)="onUpload($event)" [userCredentials]="userCredentials"></app-add-photo>
+    <div style="display:flex;flex-direction: row">
+        <div style="width: 50%;">
+            <div *ngIf=retrievedImage>
+                <img [src]="retrievedImage" style="margin-left: 40%" alt="Zdjęcie użytkownika">
+            </div>
+            <div *ngIf=!retrievedImage>
+                <img src="/assets/defaultPicture.png" alt="Zdjęcie użytkownika" style="margin-left: 40%">
+            </div>
         </div>
-      </section>
-      <div class="button">
-        <section *ngIf="!userCredentials">
-          <button mat-raised-button color="primary" *ngIf="showAddInformationButton"
-                  (click)="openAddInformationForm()">
-            Add your profile
-          </button>
-          <app-add-info *ngIf="addInfo" (onSave)="saveInfo($event)" (onCancel)="cancelInfo()"></app-add-info>
-        </section>
-      </div>
+        <div style="width: 50%;">
+
+            <div *ngIf="userCredentials && !editInfo">
+                <p></p>
+                <mat-card-content> Name: {{userCredentials?.userName}} </mat-card-content>
+                <p></p>
+                <mat-card-content> Age: {{userCredentials?.age}} </mat-card-content>
+                <p></p>
+                <mat-card-content> Gender: {{formatGender()}} </mat-card-content>
+                <p></p>
+                <mat-card-content> Height: {{userCredentials?.height.value}}cm</mat-card-content>
+                <p></p>
+                <mat-card-content> Activity: {{formatActivity()}} </mat-card-content>
+            </div>
+            <p></p>
+            <section *ngIf="userCredentials">
+                <button mat-raised-button color="primary" *ngIf="showEditInformationButton"
+                        (click)="openEditInformationForm()">
+                    Edit profile
+                </button>
+                <p></p>
+                <app-edit-info *ngIf="editInfo" (onSave)="saveEditInfo($event)" (onCancel)="cancelInfo()"
+                               [userCredentials]="userCredentials"></app-edit-info>
+
+                <div *ngIf="showEditInformationButton">
+                    <app-add-photo *ngIf="!editPhoto" (onDownload)="onDownload($event)" (onUpload)="onUpload($event)"
+                                   [userCredentials]="userCredentials"></app-add-photo>
+                    <app-edit-photo *ngIf="editPhoto" (onDownloadEditImage)="onDownloadEditImage($event)"
+                                    (onUpdate)="onUpdate($event)" [userCredentials]="userCredentials"></app-edit-photo>
+                </div>
+            </section>
+            <div class="button">
+                <section *ngIf="!userCredentials">
+                    <button mat-raised-button color="primary" *ngIf="showAddInformationButton"
+                            (click)="openAddInformationForm()">
+                        Add your profile
+                    </button>
+                    <app-add-info *ngIf="addInfo" (onSave)="saveInfo($event)" (onCancel)="cancelInfo()"></app-add-info>
+                </section>
+            </div>
+        </div>
     </div>
-  </div>
 </div>
 
 

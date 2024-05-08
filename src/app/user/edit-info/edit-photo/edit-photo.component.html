@@ -1,0 +1,11 @@
+<button type="button" mat-raised-button color="primary" (click)="fileInput.click()"
+>Edit photo
+</button>
+<input hidden (change)="onFileSelected($event)" #fileInput type="file">
+<div *ngIf="selectedFile && showSave" style="color: green; margin-top: 15px; margin-bottom: 15px">
+  Uploaded new image: {{selectedFile.name}}
+</div>
+
+<button *ngIf="selectedFile && showSave" type="button" mat-raised-button color="primary" (click)="updateImage()"
+>Click here to save
+</button>
