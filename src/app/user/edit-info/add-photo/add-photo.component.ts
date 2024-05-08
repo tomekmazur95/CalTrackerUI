@@ -40,8 +40,13 @@ export class AddPhotoComponent  implements OnInit{
     const uploadImageData = new FormData();
     uploadImageData.append('image', this.selectedFile, this.selectedFile.name);
     this.storageClient.uploadFile(uploadImageData, this.userCredentials.id).subscribe(response => {
-      this.response = response;
-      this.onUpload.emit(response);
+      if(response.status == 200) {
+        this.getImage();
+      }
+      if (typeof response.body === "string") {
+        this.response = parseInt(response.body);
+      }
+      this.onUpload.emit(this.response);
     })
   }
 

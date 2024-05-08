@@ -12,7 +12,7 @@ export class StorageClient {
   }
 
   public uploadFile(uploadImageData: FormData, userId: number) {
-    return this.http.post<number>(`http://localhost:8080/images/${userId}`, uploadImageData);
+    return this.http.post(`http://localhost:8080/images/${userId}`, uploadImageData, {observe: 'response'});
   }
 
   public downloadFile(userId: number) {
