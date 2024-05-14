@@ -8,7 +8,7 @@ import {AuthenticationService} from "./services/authentication.service";
 })
 export class AppComponent implements OnInit {
 
-  selectedButton: string;
+  selectedButton: string= 'home';
 
   ngOnInit() {
   }
@@ -19,7 +19,7 @@ export class AppComponent implements OnInit {
 
   logout(): void {
     this.authenticationService.logout();
-    this.selectedButton = '';
+    this.selectedButton = 'home';
   }
 
   isLoggedIn() {
