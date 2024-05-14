@@ -1,7 +1,7 @@
 <mat-toolbar style="height: 80px">
   <mat-toolbar-row>
     <span class="spacer"></span>
-    <span style="color: #10396e ; cursor: pointer; font-size: 40px" routerLink="/" routerLinkActive="active">CalTracker</span>
+    <span style="color: #10396e ; cursor: pointer; font-size: 40px" routerLink="/"  (click)="selectButton('home')">CalTracker</span>
     <span class="spacer"></span>
     <div *ngIf="isLoggedIn()">
       <button mat-raised-button color="primary" (click)="logout()">Logout</button>
@@ -10,10 +10,11 @@
 </mat-toolbar>
 
 <mat-toolbar style="background-color: #10396e" *ngIf="isLoggedIn()">
-  <mat-toolbar-row>
-    <button mat-button style="color: #fafafa" routerLink="/" routerLinkActive="active">Home page</button>
-    <button mat-button style="color: #fafafa" routerLink="/profile" routerLinkActive="active">Profile</button>
-    <button mat-button style="color: #fafafa" routerLink="/goals" routerLinkActive="active">Goals</button>
+  <mat-toolbar-row style="margin-left: 20%;">
+    <button mat-button [ngClass]="{'current': selectedButton === 'home'}" (click)="selectButton('home')"  routerLink="/" routerLinkActive="active" >Home page</button>
+    <button mat-button [ngClass]="{'current': selectedButton === 'profile'}" (click)="selectButton('profile')" routerLink="/profile" routerLinkActive="active">Profile</button>
+    <button mat-button [ngClass]="{'current': selectedButton === 'goals'}" (click)="selectButton('goals')" routerLink="/goals" routerLinkActive="active">Goals</button>
+    <button mat-button [ngClass]="{'current': selectedButton === 'food'}" (click)="selectButton('food')" routerLink="/food" routerLinkActive="active">Food</button>
   </mat-toolbar-row>
 </mat-toolbar>
 <router-outlet></router-outlet>

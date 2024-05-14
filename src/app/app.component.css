@@ -1,3 +1,14 @@
 .spacer {
   flex: 1;
 }
+.mat-toolbar-row button {
+  color: #fafafa;
+  --mdc-text-button-container-height: 64px;
+  --mdc-text-button-container-shape: 0px;
+  padding: 20px;
+  font-size: 80%;
+}
+
+.mat-toolbar-row button.current {
+  background-color: #394dbb; /* Dodaj tutaj kolor dla aktywnego przycisku */
+}
