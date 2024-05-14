@@ -30,6 +30,7 @@ import { DialogEditNutritionsComponent } from './goals/table-goals/dialog-edit-n
 import {MatDialogActions, MatDialogClose, MatDialogContent} from "@angular/material/dialog";
 import { AddPhotoComponent } from './user/edit-info/add-photo/add-photo.component';
 import { EditPhotoComponent } from './user/edit-info/edit-photo/edit-photo.component';
+import { FoodComponent } from './food/food.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { EditPhotoComponent } from './user/edit-info/edit-photo/edit-photo.compo
     TableGoalsComponent,
     DialogEditNutritionsComponent,
     AddPhotoComponent,
-    EditPhotoComponent
+    EditPhotoComponent,
+    FoodComponent
   ],
   imports: [
     BrowserModule,

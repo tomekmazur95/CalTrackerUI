@@ -1,0 +1,12 @@
+.container {
+  width: 60%;
+  margin: 0 auto;
+}
+
+.content {
+  text-align: center;
+}
+.mat-toolbar-row {
+  height: 50px;
+}
+
