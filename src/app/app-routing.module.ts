@@ -8,6 +8,7 @@ import {HomePageComponent} from "./home-page/home-page.component";
 import {GoalsComponent} from "./goals/goals.component";
 import {FoodDairyComponent} from "./food/food-dairy/food-dairy.component";
 import {MyFoodsComponent} from "./food/my-foods/my-foods.component";
+import {MyMealsComponent} from "./food/my-meals/my-meals.component";
 
 
 const routes: Routes = [
@@ -17,7 +18,8 @@ const routes: Routes = [
   { path: '', component: HomePageComponent, canActivate: [authGuard]},
   { path: 'goals', component: GoalsComponent, canActivate: [authGuard]},
   { path: 'food/dairy', component: FoodDairyComponent, canActivate: [authGuard]},
-  { path: 'food/mine', component: MyFoodsComponent, canActivate: [authGuard]}
+  { path: 'food/mine', component: MyFoodsComponent, canActivate: [authGuard]},
+  { path: 'meal/mine', component: MyMealsComponent, canActivate: [authGuard]}
 ];
 @NgModule({
   imports: [

@@ -2,10 +2,16 @@
   <div class="content">
     <mat-toolbar style="background-color: #394dbb; --mat-toolbar-standard-height: 30px;">
       <mat-toolbar-row>
-        <button mat-button [ngClass]="{'current': selectedButton === 'dairy'}" (click)="selectButton('dairy')"  routerLink="/food/dairy" routerLinkActive="active" >Food dairy</button>
-        <button mat-button [ngClass]="{'current': selectedButton === 'mine'}" (click)="selectButton('mine')"  routerLink="/food/mine" routerLinkActive="active" >My foods</button>
-        <button mat-button style="color: #b9b6b6" >My meals</button>
-        <button mat-button style="color: #b9b6b6" >Database</button>
+        <button mat-button [ngClass]="{'current': selectedButton === 'dairy'}" (click)="selectButton('dairy')"
+                routerLink="/food/dairy" routerLinkActive="active">Food dairy
+        </button>
+        <button mat-button [ngClass]="{'current': selectedButton === 'mine'}" (click)="selectButton('mine')"
+                routerLink="/food/mine" routerLinkActive="active">My foods
+        </button>
+        <button mat-button [ngClass]="{'current': selectedButton === 'meal'}" (click)="selectButton('meal')"
+                routerLink="/meal/mine">My meals
+        </button>
+        <button mat-button style="color: #b9b6b6">Database</button>
       </mat-toolbar-row>
     </mat-toolbar>
   </div>

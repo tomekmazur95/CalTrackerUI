@@ -16,4 +16,5 @@
 }
 .mat-toolbar-row button.current {
   color: #ffffff;
+  font-weight: bold;
 }
