@@ -31,6 +31,8 @@ import {MatDialogActions, MatDialogClose, MatDialogContent} from "@angular/mater
 import { AddPhotoComponent } from './user/edit-info/add-photo/add-photo.component';
 import { EditPhotoComponent } from './user/edit-info/edit-photo/edit-photo.component';
 import { FoodComponent } from './food/food.component';
+import { FoodDairyComponent } from './food/food-dairy/food-dairy.component';
+import { MyFoodsComponent } from './food/my-foods/my-foods.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +49,9 @@ import { FoodComponent } from './food/food.component';
     DialogEditNutritionsComponent,
     AddPhotoComponent,
     EditPhotoComponent,
-    FoodComponent
+    FoodComponent,
+    FoodDairyComponent,
+    MyFoodsComponent
   ],
   imports: [
     BrowserModule,
