@@ -10,3 +10,10 @@
   height: 50px;
 }
 
+.mat-toolbar-row button {
+  color: #b9b6b6;
+  padding: 20px;
+}
+.mat-toolbar-row button.current {
+  color: #ffffff;
+}
