@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 export class FoodComponent {
 
-  selectedButton: string = 'food_dairy';
+  selectedButton: string = 'dairy';
 
   selectButton(button: string) {
     this.selectedButton = button;
