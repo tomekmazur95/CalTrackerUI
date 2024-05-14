@@ -14,7 +14,7 @@
     <button mat-button [ngClass]="{'current': selectedButton === 'home'}" (click)="selectButton('home')"  routerLink="/" routerLinkActive="active" >Home page</button>
     <button mat-button [ngClass]="{'current': selectedButton === 'profile'}" (click)="selectButton('profile')" routerLink="/profile" routerLinkActive="active">Profile</button>
     <button mat-button [ngClass]="{'current': selectedButton === 'goals'}" (click)="selectButton('goals')" routerLink="/goals" routerLinkActive="active">Goals</button>
-    <button mat-button [ngClass]="{'current': selectedButton === 'food'}" (click)="selectButton('food')" routerLink="/food/food_dairy" routerLinkActive="active">Food</button>
+    <button mat-button [ngClass]="{'current': selectedButton === 'food'}" (click)="selectButton('food')" routerLink="/food/dairy" routerLinkActive="active">Food</button>
   </mat-toolbar-row>
 </mat-toolbar>
 <app-food *ngIf="selectedButton === 'food'"></app-food>
