@@ -33,6 +33,7 @@ import { EditPhotoComponent } from './user/edit-info/edit-photo/edit-photo.compo
 import { FoodComponent } from './food/food.component';
 import { FoodDairyComponent } from './food/food-dairy/food-dairy.component';
 import { MyFoodsComponent } from './food/my-foods/my-foods.component';
+import { MyMealsComponent } from './food/my-meals/my-meals.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { MyFoodsComponent } from './food/my-foods/my-foods.component';
     EditPhotoComponent,
     FoodComponent,
     FoodDairyComponent,
-    MyFoodsComponent
+    MyFoodsComponent,
+    MyMealsComponent
   ],
   imports: [
     BrowserModule,
