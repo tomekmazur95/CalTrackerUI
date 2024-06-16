@@ -34,6 +34,9 @@ import { FoodComponent } from './food/food.component';
 import { FoodDairyComponent } from './food/food-dairy/food-dairy.component';
 import { MyFoodsComponent } from './food/my-foods/my-foods.component';
 import { MyMealsComponent } from './food/my-meals/my-meals.component';
+import {MatIconModule} from "@angular/material/icon";
+import { CreateFoodsComponent } from './food/my-foods/create-foods/create-foods.component';
+import { SearchFoodsComponent } from './food/my-foods/search-foods/search-foods.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +56,9 @@ import { MyMealsComponent } from './food/my-meals/my-meals.component';
     FoodComponent,
     FoodDairyComponent,
     MyFoodsComponent,
-    MyMealsComponent
+    MyMealsComponent,
+    CreateFoodsComponent,
+    SearchFoodsComponent
   ],
   imports: [
     BrowserModule,
@@ -76,6 +81,7 @@ import { MyMealsComponent } from './food/my-meals/my-meals.component';
     MatDialogContent,
     MatDialogActions,
     MatDialogClose,
+    MatIconModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true},

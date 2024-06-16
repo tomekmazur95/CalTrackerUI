@@ -129,4 +129,18 @@ export interface Image {
   type: string;
   imageData: string;
 }
-
+export interface RequestFoodDTO {
+  name: string,
+  description: string,
+  date : string
+  requestFoodFactDTO: RequestFoodFactDTO
+}
+export interface RequestFoodFactDTO {
+  unit: Unit,
+  value: number,
+  calories : number,
+  fat: number,
+  carbohydrates: number,
+  protein : number,
+  date: string
+}

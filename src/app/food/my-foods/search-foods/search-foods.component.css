@@ -1,0 +1,9 @@
+.mat-toolbar {
+  width: 70%;
+  background-color: #6c87d2;
+}
+.tool-bar {
+  margin-left: 0;
+}
+
+.search-bar input { border-bottom-color: white; }
