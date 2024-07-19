@@ -1,1 +1,28 @@
-<div class="container">aasasasd</div>
+<form [formGroup]="createFoodForm">
+  <div class="line-separator">
+    <h2>1. Enter nutritional information:</h2>
+    <div class="flex-container">
+      <div style="flex: 1;margin: auto; font-size: larger">
+        Food name :
+      </div>
+      <div style="flex: 1; margin-right: 65%">
+        <mat-form-field>
+          <mat-label>
+            Name
+          </mat-label>
+          <input matInput type="text" formControlName="name">
+        </mat-form-field>
+      </div>
+    </div>
+    <p></p>
+    <div>
+      Food description:
+      <mat-form-field>
+        <mat-label>
+          Description
+        </mat-label>
+        <input matInput type="text" formControlName="description">
+      </mat-form-field>
+    </div>
+  </div>
+</form>
