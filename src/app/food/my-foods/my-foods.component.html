@@ -1,6 +1,18 @@
 <div class="container">
   <div class="content">
-    <p>my-foods works!</p>
+    <h1>Your Personal Foods</h1>
+  </div>
+  <div class="flex-container">
+    <div class="search-foods-container" *ngIf="!addFood">
+      <app-search-foods></app-search-foods>
+    </div>
+    <div class="create-foods-container" *ngIf="addFood">
+      <app-create-foods></app-create-foods>
+    </div>
+    <div class="button-container" *ngIf="!addFood">
+      <button mat-raised-button color="primary" class="create-button" (click)="openAddFoodComponent()">
+        Create food
+      </button>
+    </div>
   </div>
 </div>
-

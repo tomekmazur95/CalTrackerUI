@@ -1,0 +1,28 @@
+.container {
+  width: 100%;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.text-name {
+  flex: 1;
+  margin: auto;
+  font-size: larger
+}
+
+.text-input {
+  flex: 1;
+  margin-right: 65%;
+  --mdc-filled-text-field-container-color: #77707033;
+  margin-top: 10px;
+}
+.horizontal_line {
+  border-bottom: 1px solid #6b6464;
+  margin-top: 5px;
+}
+.flex-form-field {
+  width: 150%;
+}

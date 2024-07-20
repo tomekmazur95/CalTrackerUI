@@ -6,4 +6,34 @@
 .content {
   text-align: center;
   padding: 20px;
+  background-color: #f0f0f0;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.search-foods-container {
+  flex: 1;
+  padding-right: 10px;
+}
+
+.create-foods-container {
+  flex: 1;
+  padding: 62px;
+}
+
+.button-container {
+  margin-top: auto;
+  margin-left: auto;
+}
+
+.create-button {
+  height: 64px;
+}
+
+button {
+  display: block;
 }

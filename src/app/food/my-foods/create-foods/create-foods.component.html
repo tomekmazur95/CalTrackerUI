@@ -1,0 +1,29 @@
+<form [formGroup]="createFoodForm">
+  <div class="line-separator">
+    <h2>1. Enter nutritional information:</h2>
+    <div class="horizontal_line"></div>
+    <div class="flex-container">
+      <div class="text-name">
+        Food name :
+      </div>
+      <div class="text-input">
+        <mat-form-field>
+          <input matInput type="text" formControlName="name">
+        </mat-form-field>
+      </div>
+    </div>
+    <p></p>
+    <div class="flex-container">
+      <div class="text-name">
+        Food description :
+      </div>
+      <div class="text-input">
+        <mat-form-field class="flex-form-field">
+          <input matInput type="text" formControlName="description">
+        </mat-form-field>
+      </div>
+    </div>
+    <h2>2. Nutrition facts</h2>
+    <div class="horizontal_line"></div>
+  </div>
+</form>

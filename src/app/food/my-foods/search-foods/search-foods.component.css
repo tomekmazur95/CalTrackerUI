@@ -1,0 +1,12 @@
+.mat-toolbar {
+  background-color: #6c87d2;
+}
+.tool-bar {
+  margin-left: 0;
+}
+
+.search-bar {
+  height: 50%;
+  font-size: 80%;
+  width: 50%;
+}
