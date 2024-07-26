@@ -19,10 +19,26 @@
   --mdc-filled-text-field-container-color: #77707033;
   margin-top: 10px;
 }
+
 .horizontal_line {
-  border-bottom: 1px solid #6b6464;
-  margin-top: 5px;
+  border-bottom: 2px solid #6b6464;
 }
+
 .flex-form-field {
   width: 150%;
+}
+
+.flex-container-horizontal {
+  display: flex;
+  justify-content: space-between;
+  width: 31%;
+  margin-top: 20px;
+}
+h1 {
+  margin-bottom: 0;
+}
+
+.flex-form-field-serving {
+  width: 120px;
+  --mdc-filled-text-field-container-color: #77707033;
 }
