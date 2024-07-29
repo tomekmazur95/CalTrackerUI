@@ -16,7 +16,6 @@
 .text-input {
   flex: 1;
   margin-right: 65%;
-  --mdc-filled-text-field-container-color: #77707033;
   margin-top: 10px;
 }
 
@@ -34,11 +33,11 @@
   width: 31%;
   margin-top: 20px;
 }
+
 h1 {
   margin-bottom: 0;
 }
 
 .flex-form-field-serving {
   width: 120px;
-  --mdc-filled-text-field-container-color: #77707033;
 }

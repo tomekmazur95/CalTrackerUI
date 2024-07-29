@@ -22,7 +22,7 @@
 
 .create-foods-container {
   flex: 1;
-  padding: 62px;
+  margin-top: 25px;
 }
 
 .button-container {
