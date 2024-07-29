@@ -5,12 +5,14 @@
 .flex-container {
   display: flex;
   flex-direction: row;
+  margin-top: 20px;
 }
 
 .text-name {
   flex: 1;
   margin: auto;
-  font-size: larger
+  font-size: larger;
+  font-weight: bold;
 }
 
 .text-input {
@@ -32,6 +34,7 @@
   justify-content: space-between;
   width: 31%;
   margin-top: 20px;
+  margin-left: 15px;
 }
 
 h1 {
@@ -40,4 +43,24 @@ h1 {
 
 .flex-form-field-serving {
   width: 120px;
+}
+
+.flex-form-field-horizontal {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 60%;
+  height: 70%;
+}
+
+.flex-form-field-horizontal h3 {
+  font-weight: bold;
+}
+
+.flex-container-horizontal h3 {
+  font-weight: bold;
+}
+
+h1 {
+  font-weight: bold;
 }

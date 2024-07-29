@@ -14,7 +14,9 @@ export class CreateFoodsComponent {
     value: new FormControl(''),
     unit: new FormControl(''),
     calories: new FormControl(''),
-    fat: new FormControl(''),
+    totalFat: new FormControl(''),
+    sodium: new FormControl(''),
+    potassium: new FormControl(''),
     carbohydrate: new FormControl(''),
     protein: new FormControl(''),
   })
