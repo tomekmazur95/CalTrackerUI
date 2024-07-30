@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Output} from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
-import {Unit} from "../../../shared/models";
+import {RequestFoodDTO, Unit} from "../../../shared/models";
 
 @Component({
   selector: 'app-create-foods',
@@ -12,18 +12,29 @@ export class CreateFoodsComponent {
   @Output() onSave = new EventEmitter();
   @Output() onCancel = new EventEmitter();
 
+  public requestFoodDTO: RequestFoodDTO;
+
   createFoodForm = new FormGroup({
     name: new FormControl(''),
     description: new FormControl(''),
-    value: new FormControl(''),
-    unit: new FormControl(''),
-    calories: new FormControl(''),
-    fat: new FormControl(''),
-    carbohydrate: new FormControl(''),
-    protein: new FormControl(''),
+    value: new FormControl(null),
+    unit: new FormControl(null),
+    calories: new FormControl(null),
+    fat: new FormControl(null),
+    carbohydrate: new FormControl(null),
+    protein: new FormControl(null),
   })
 
   public save() {
+    this.requestFoodDTO.name = this.createFoodForm.get('name').value;
+    this.requestFoodDTO.description = this.createFoodForm.get('description').value;
+    this.requestFoodDTO.date = Date.now();
+    this.requestFoodDTO.requestFoodFactDTO.value = this.createFoodForm.get('value').value;
+    this.requestFoodDTO.requestFoodFactDTO.unit = this.fetchUnit(this.createFoodForm.get('unit').value);
+    this.requestFoodDTO.requestFoodFactDTO.calories = this.createFoodForm.get('calories').value;
+    this.requestFoodDTO.requestFoodFactDTO.fat = this.createFoodForm.get('fat').value;
+    this.requestFoodDTO.requestFoodFactDTO.carbohydrate = this.createFoodForm.get('carbohydrate').value;
+    this.requestFoodDTO.requestFoodFactDTO.protein = this.createFoodForm.get('protein').value;
     this.onSave.emit();
   }
 

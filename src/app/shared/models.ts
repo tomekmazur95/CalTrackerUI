@@ -133,7 +133,7 @@ export interface Image {
 export interface RequestFoodDTO {
   name: string,
   description: string,
-  date : string
+  date : number
   requestFoodFactDTO: RequestFoodFactDTO
 }
 export interface RequestFoodFactDTO {
@@ -141,7 +141,7 @@ export interface RequestFoodFactDTO {
   value: number,
   calories : number,
   fat: number,
-  carbohydrates: number,
+  carbohydrate: number,
   protein : number,
   date: string
 }
