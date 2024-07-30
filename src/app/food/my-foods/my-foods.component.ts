@@ -7,10 +7,16 @@ import { Component } from '@angular/core';
 })
 export class MyFoodsComponent {
   addFood: boolean = false;
-  showAddFoodButton: boolean = true;
 
   openAddFoodComponent() {
     this.addFood = true;
-    this.showAddFoodButton = false;
+  }
+
+  cancelCreating() {
+    this.addFood = false;
+  }
+
+  saveCreating() {
+    this.addFood = false;
   }
 }

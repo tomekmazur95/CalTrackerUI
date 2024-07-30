@@ -23,7 +23,8 @@ export enum MeasureType {
 
 export enum Unit {
   CENTIMETERS = 'CENTIMETERS',
-  KILOGRAMS = 'KILOGRAMS'
+  KILOGRAMS = 'KILOGRAMS',
+  GRAMS = 'GRAMS'
 }
 
 export interface Measurement {
