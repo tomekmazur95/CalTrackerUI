@@ -115,27 +115,39 @@ export interface ResponseUserActivityDTO {
   id: number;
   activity: Activity;
 }
+
 export class Nutritons{
   carbs: number;
   fat: number;
   protein: number;
 }
+
 export interface DialogData {
   userGoals: UserGoalsResponseDTO,
   editNutritions: Nutritons
 }
+
 export interface Image {
   id: number;
   name: string;
   type: string;
   imageData: string;
 }
+
 export interface RequestFoodDTO {
   name: string,
   description: string,
-  date : number
+  date : string,
   requestFoodFactDTO: RequestFoodFactDTO
 }
+
+export class RequestFoodDTO {
+  name: string;
+  description: string;
+  date : string;
+  requestFoodFactDTO: RequestFoodFactDTO;
+}
+
 export interface RequestFoodFactDTO {
   unit: Unit,
   value: number,
@@ -144,4 +156,14 @@ export interface RequestFoodFactDTO {
   carbohydrate: number,
   protein : number,
   date: string
+}
+
+export class RequestFoodFactDTO {
+  unit: Unit;
+  value: number;
+  calories : number;
+  fat: number;
+  carbohydrate: number;
+  protein : number;
+  date: string;
 }
