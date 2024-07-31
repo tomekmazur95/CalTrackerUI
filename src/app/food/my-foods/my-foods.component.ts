@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {RequestFoodDTO} from "../../shared/models";
 
 @Component({
   selector: 'app-my-foods',
@@ -16,7 +17,8 @@ export class MyFoodsComponent {
     this.addFood = false;
   }
 
-  saveCreating() {
+  saveCreating(requestFoodDTO: RequestFoodDTO) {
+    console.log(requestFoodDTO)
     this.addFood = false;
   }
 }
