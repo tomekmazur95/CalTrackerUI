@@ -38,6 +38,7 @@ export class CreateFoodsComponent {
         this.requestFoodFactDTO.protein = this.createFoodForm.get('protein').value;
         this.requestFoodFactDTO.protein = this.createFoodForm.get('protein').value;
         this.requestFoodFactDTO.date = new Date().toISOString();
+        this.requestFoodDTO.requestFoodFactDTO = this.requestFoodFactDTO;
         this.onSave.emit(this.requestFoodDTO);
     }
 

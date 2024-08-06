@@ -167,3 +167,22 @@ export class RequestFoodFactDTO {
   protein : number;
   date: string;
 }
+
+export interface ResponseFoodDTO {
+  id: number;
+  name: string;
+  description: string;
+  date : string;
+  responseFoodFactDTO: ResponseFoodFactDTO;
+}
+
+export interface ResponseFoodFactDTO {
+  id: number;
+  unit: Unit;
+  value: number;
+  calories: number;
+  fat: number;
+  carbohydrate: number;
+  protein: number;
+  date: string;
+}
