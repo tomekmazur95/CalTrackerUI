@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import {RequestFoodDTO} from "../../shared/models";
+import {RequestFoodDTO, ResponseFoodDTO } from "../../shared/models";
+import {FoodClient} from "../../clients/food.client";
+import {UserClient} from "../../clients/user.client";
 
 @Component({
   selector: 'app-my-foods',
@@ -8,7 +10,12 @@ import {RequestFoodDTO} from "../../shared/models";
 })
 export class MyFoodsComponent {
   addFood: boolean = false;
+  createdFood: ResponseFoodDTO;
 
+  constructor(
+    private foodClient: FoodClient,
+    private userClient: UserClient
+  ) {}
   openAddFoodComponent() {
     this.addFood = true;
   }
@@ -18,7 +25,14 @@ export class MyFoodsComponent {
   }
 
   saveCreating(requestFoodDTO: RequestFoodDTO) {
-    console.log(requestFoodDTO)
+    console.log('Request: ' + requestFoodDTO)
+    this.userClient.getUserInfo().subscribe(userResponse => {
+      this.userClient.getUserCredentials(userResponse.id).subscribe(user => {
+        this.foodClient.createFood(user.id, requestFoodDTO).subscribe(foodResponse =>
+          this.createdFood = foodResponse
+        )
+      })
+    })
     this.addFood = false;
   }
 }
