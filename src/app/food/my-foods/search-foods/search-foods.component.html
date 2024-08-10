@@ -2,7 +2,8 @@
   <div class="tool-bar">
     <mat-toolbar>
       <mat-icon>search</mat-icon>
-      <input class="search-bar" type="text" placeholder="Search..." [(ngModel)]="food">
+      <input class="search-bar" type="text" placeholder="Search..." #filter>
+      <button class="primary" type="button" (click)="filterResults(filter.value)">Search</button>
     </mat-toolbar>
   </div>
   <div class="container">
@@ -10,7 +11,7 @@
   </div>
   <div>
     <ul>
-      <li *ngFor="let food of userFoodList">
+      <li *ngFor="let food of filteredUserFoodList">
         <button type="button">
           <span>{{food.id}}</span>
           <span>{{food.name}}</span>
