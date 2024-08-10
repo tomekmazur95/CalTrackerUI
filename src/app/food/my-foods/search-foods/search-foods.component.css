@@ -13,3 +13,34 @@
 .container {
   width: 100%;
 }
+
+.filtered-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  height: 100%;
+}
+
+* {
+  scrollbar-width: auto;
+}
+
+h3 {
+  margin-left: 10px;
+  padding: 10px;
+}
+
+.list-container {
+  width: 400px;
+  height: 300px;
+  border: 2px solid black;
+  padding: 10px;
+  box-sizing: border-box;
+  overflow-y: scroll;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+li {
+  border-bottom: 1px solid black;
+}
