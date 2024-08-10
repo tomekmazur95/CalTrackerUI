@@ -12,4 +12,8 @@ export class FoodClient {
   public createFood(userId: number, requestFoodDTO: RequestFoodDTO) {
     return this.http.post<ResponseFoodDTO>(`http://localhost:8080/foods?userId=${userId}`, requestFoodDTO)
   }
+
+  public findUserFoods(userId: number) {
+    return this.http.get<ResponseFoodDTO[]>(`http://localhost:8080/foods?userId=${userId}`);
+  }
 }
