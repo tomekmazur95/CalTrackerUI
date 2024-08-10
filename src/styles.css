@@ -7,9 +7,6 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
 
 }
-::-webkit-scrollbar {
-  width: 0;  /* dla przeglądarek opartych na WebKit (Chrome/Safari) */
-}
 * {
   scrollbar-width: none;
 }
