@@ -1,21 +1,22 @@
 <h2 style="margin-top: 2%">Search your personal foods by name: </h2>
-  <div class="tool-bar">
-    <mat-toolbar>
-      <mat-icon>search</mat-icon>
-      <input class="search-bar" type="text" placeholder="Search..." #filter>
-      <button class="primary" type="button" (click)="filterResults(filter.value)">Search</button>
-    </mat-toolbar>
-  </div>
-  <div class="container">
-    <p>Matching foods</p>
-  </div>
-  <div>
-    <ul>
-      <li *ngFor="let food of filteredUserFoodList">
-        <button type="button">
-          <span>{{food.id}}</span>
-          <span>{{food.name}}</span>
-        </button>
-      </li>
-    </ul>
-  </div>
+<div class="tool-bar">
+  <mat-toolbar>
+    <mat-icon>search</mat-icon>
+    <input class="search-bar" type="text" placeholder="Search..." #filter (keydown.enter)="filterResults(filter.value)">
+    <button mat-raised-button color="primary" type="button" (click)="filterResults(filter.value)">Search</button>
+  </mat-toolbar>
+</div>
+<div class="container">
+  <h3>Matching foods: </h3>
+</div>
+
+<div class="list-container">
+  <ul class="filtered-list">
+    <li *ngFor="let food of filteredUserFoodList">
+      <p>{{food.name}}</p>
+      <p>{{food.description}}</p>
+      <p>{{food.responseFoodFactDTO.calories}}</p>
+    </li>
+  </ul>
+</div>
+
