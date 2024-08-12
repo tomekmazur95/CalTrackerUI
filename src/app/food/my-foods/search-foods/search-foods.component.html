@@ -3,20 +3,30 @@
   <mat-toolbar>
     <mat-icon>search</mat-icon>
     <input class="search-bar" type="text" placeholder="Search..." #filter (keydown.enter)="filterResults(filter.value)">
-    <button mat-raised-button color="primary" type="button" (click)="filterResults(filter.value)">Search</button>
+    <button mat-raised-button color="primary" type="button" style="margin-left: 5px" (click)="filterResults(filter.value)">Search</button>
   </mat-toolbar>
 </div>
 <div class="container">
   <h3>Matching foods: </h3>
 </div>
 
-<div class="list-container">
-  <ul class="filtered-list">
-    <li *ngFor="let food of filteredUserFoodList">
-      <p>{{food.name}}</p>
-      <p>{{food.description}}</p>
-      <p>{{food.responseFoodFactDTO.calories}}</p>
-    </li>
-  </ul>
+<div class="food-tables">
+  <div class="list-container">
+    <ul class="filtered-list">
+      <li *ngFor="let food of filteredUserFoodList">
+        <div (click)="showDetails(food)" style="cursor: pointer">
+          <p style="color: #6c87d2">{{food.name}}</p>
+          <p>{{food.responseFoodFactDTO.value}} {{food.responseFoodFactDTO.unit}} </p>
+          <p>{{food.responseFoodFactDTO.calories}} kcal</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="details-container">
+    <p>{{foodDetails?.name}}</p>
+    <p>{{foodDetails?.description}}</p>
+    <p>{{foodDetails?.responseFoodFactDTO.calories}}</p>
+  </div>
 </div>
+
 
