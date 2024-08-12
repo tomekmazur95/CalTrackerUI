@@ -31,16 +31,20 @@ h3 {
 }
 
 .list-container {
-  width: 400px;
-  height: 300px;
+  width: 350px;
+  height: 400px;
   border: 2px solid black;
   padding: 10px;
   box-sizing: border-box;
   overflow-y: scroll;
-  margin-left: auto;
   margin-right: auto;
 }
 
 li {
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid rgb(128, 128, 128);
+  padding: 5px;
+}
+
+.food-tables {
+  display: flex;
 }

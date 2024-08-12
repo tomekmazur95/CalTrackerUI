@@ -13,6 +13,7 @@ export class SearchFoodsComponent implements OnInit {
   userFoodList: ResponseFoodDTO[];
   food: any;
   filteredUserFoodList: ResponseFoodDTO[];
+  foodDetails: ResponseFoodDTO;
 
   constructor(private foodClient: FoodClient,
               private userClient: UserClient) {
@@ -39,5 +40,9 @@ export class SearchFoodsComponent implements OnInit {
       food =>
         food?.name.toLowerCase().includes(text.toLowerCase())
     )
+  }
+
+  showDetails(food: ResponseFoodDTO) {
+    this.foodDetails = food;
   }
 }
