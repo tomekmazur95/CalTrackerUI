@@ -6,10 +6,7 @@
     <button mat-raised-button color="primary" type="button" style="margin-left: 5px" (click)="filterResults(filter.value)">Search</button>
   </mat-toolbar>
 </div>
-<div class="container">
-  <h3>Matching foods: </h3>
-</div>
-
+<h2 style="padding: 10px 10px 10px 0; margin:auto">Matching foods: </h2>
 <div class="food-tables">
   <div class="list-container">
     <ul class="filtered-list">
@@ -22,11 +19,7 @@
       </li>
     </ul>
   </div>
-  <div class="details-container">
-    <p>{{foodDetails?.name}}</p>
-    <p>{{foodDetails?.description}}</p>
-    <p>{{foodDetails?.responseFoodFactDTO.calories}}</p>
-  </div>
+  <app-search-details-food [foodDetails]="foodDetails"></app-search-details-food>
 </div>
 
 

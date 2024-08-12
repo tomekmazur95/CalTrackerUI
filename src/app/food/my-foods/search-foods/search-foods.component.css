@@ -37,7 +37,6 @@ h3 {
   padding: 10px;
   box-sizing: border-box;
   overflow-y: scroll;
-  margin-right: auto;
 }
 
 li {
@@ -47,13 +46,5 @@ li {
 
 .food-tables {
   display: flex;
-}
-
-.details-container {
-  width: 350px;
-  height: 400px;
-  border: 2px solid black;
-  padding: 10px;
-  box-sizing: border-box;
-  margin-right: auto;
+  justify-content: flex-start;
 }
