@@ -11,7 +11,6 @@ import {ResponseFoodDTO} from "../../../shared/models";
 export class SearchFoodsComponent implements OnInit {
 
   userFoodList: ResponseFoodDTO[];
-  food: any;
   filteredUserFoodList: ResponseFoodDTO[];
   foodDetails: ResponseFoodDTO;
 
@@ -39,6 +38,7 @@ export class SearchFoodsComponent implements OnInit {
     this.filteredUserFoodList = this.userFoodList.filter(
       food =>
         food?.name.toLowerCase().includes(text.toLowerCase())
+      || food?.description.toLowerCase().includes(text.toLowerCase())
     )
   }
 

@@ -3,7 +3,7 @@
   <mat-toolbar>
     <mat-icon>search</mat-icon>
     <input class="search-bar" type="text" placeholder="Search..." #filter (keydown.enter)="filterResults(filter.value)">
-    <button mat-raised-button color="primary" type="button" (click)="filterResults(filter.value)">Search</button>
+    <button mat-raised-button color="primary" type="button" style="margin-left: 5px" (click)="filterResults(filter.value)">Search</button>
   </mat-toolbar>
 </div>
 <div class="container">
@@ -22,7 +22,7 @@
       </li>
     </ul>
   </div>
-  <div class="list-container">
+  <div class="details-container">
     <p>{{foodDetails?.name}}</p>
     <p>{{foodDetails?.description}}</p>
     <p>{{foodDetails?.responseFoodFactDTO.calories}}</p>
