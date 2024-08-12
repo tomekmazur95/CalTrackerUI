@@ -37,6 +37,7 @@ import { MyMealsComponent } from './food/my-meals/my-meals.component';
 import {MatIconModule} from "@angular/material/icon";
 import { CreateFoodsComponent } from './food/my-foods/create-foods/create-foods.component';
 import { SearchFoodsComponent } from './food/my-foods/search-foods/search-foods.component';
+import { SearchDetailsFoodComponent } from './food/my-foods/search-foods/search-details-food/search-details-food.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import { SearchFoodsComponent } from './food/my-foods/search-foods/search-foods.
     MyFoodsComponent,
     MyMealsComponent,
     CreateFoodsComponent,
-    SearchFoodsComponent
+    SearchFoodsComponent,
+    SearchDetailsFoodComponent
   ],
   imports: [
     BrowserModule,
