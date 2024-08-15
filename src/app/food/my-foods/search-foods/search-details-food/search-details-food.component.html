@@ -1,5 +1,13 @@
 <div class="details-container">
-  <p>{{foodDetails?.name}}</p>
-  <p>{{foodDetails?.description}}</p>
-  <p>{{foodDetails?.responseFoodFactDTO.calories}}</p>
+  <div class="unselected-foods-details" *ngIf="!foodDetails">
+    <p>
+      Select one of matching foods to see details
+    </p>
+  </div>
+  <div *ngIf="foodDetails">
+    <p>Nutrition Facts</p>
+    <p>{{foodDetails?.name}}</p>
+    <p>{{foodDetails?.description}}</p>
+    <p>{{foodDetails?.responseFoodFactDTO.calories}}</p>
+  </div>
 </div>

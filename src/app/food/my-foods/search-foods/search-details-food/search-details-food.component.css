@@ -6,3 +6,13 @@
   box-sizing: border-box;
   margin-left: 50px;
 }
+.unselected-foods-details {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50%;
+  font-size: large;
+  text-align: center;
+  font-style: italic;
+}
+
