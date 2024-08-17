@@ -1,13 +1,40 @@
 <div class="details-container">
-  <div class="unselected-foods-details" *ngIf="!foodDetails">
+  <div class="no-food-selected-message" *ngIf="!foodDetails">
     <p>
-      Select one of matching foods</p><p>to see details
+      Select one of matching foods</p>
+    <p>to see details
     </p>
   </div>
   <div *ngIf="foodDetails">
-    <p>Nutrition Facts</p>
-    <p>{{foodDetails?.name}}</p>
-    <p>{{foodDetails?.description}}</p>
-    <p>{{foodDetails?.responseFoodFactDTO.calories}}</p>
+    <section>
+      <div class="food-facts-details-first-section">
+        <div>
+          <p><b>Nutrition Facts:</b></p>
+          <p>{{foodDetails?.name}}</p>
+          <p>{{foodDetails?.description}}</p>
+        </div>
+        <div>
+        <button mat-raised-button color="primary" >Add to food dairy</button>
+        <div style="display: flex; justify-content: space-around">
+          <button mat-raised-button style="margin-top: 20px" color="primary" >Edit</button>
+          <button mat-raised-button style="margin-top: 20px" color="warn" >Delete</button>
+        </div>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div *ngIf="foodDetails">
+        <p>Serving size: </p>
+        <p>{{foodDetails?.responseFoodFactDTO.value}}</p>
+        <p>{{foodDetails?.responseFoodFactDTO.unit}}</p>
+      </div>
+    </section>
+    <section>
+      <div *ngIf="foodDetails">
+        <p>Nutrition Facts: </p>
+        <p>{{foodDetails?.name}}</p>
+        <p>{{foodDetails?.description}}</p>
+      </div>
+    </section>
   </div>
 </div>

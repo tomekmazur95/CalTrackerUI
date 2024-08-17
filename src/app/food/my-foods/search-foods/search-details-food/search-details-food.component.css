@@ -6,10 +6,16 @@
   box-sizing: border-box;
   margin-left: 50px;
 }
-.unselected-foods-details {
+.no-food-selected-message {
   margin-top: 50%;
   font-size: large;
   text-align: center;
   font-style: italic;
 }
-
+section {
+  border-bottom : 1px solid rgb(21, 20, 20);
+}
+.food-facts-details-first-section {
+  display: flex;
+  justify-content: space-between;
+}
