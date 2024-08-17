@@ -3,7 +3,9 @@
   <mat-toolbar>
     <mat-icon>search</mat-icon>
     <input class="search-bar" type="text" placeholder="Search..." #filter (keydown.enter)="filterResults(filter.value)">
-    <button mat-raised-button color="primary" type="button" style="margin-left: 5px" (click)="filterResults(filter.value)">Search</button>
+    <button mat-raised-button color="primary" type="button" style="margin-left: 5px"
+            (click)="filterResults(filter.value)">Search
+    </button>
   </mat-toolbar>
 </div>
 <h2 style="padding: 10px 10px 10px 0; margin:auto">Matching foods: </h2>
@@ -13,7 +15,9 @@
       <li *ngFor="let food of filteredUserFoodList">
         <div (click)="showDetails(food)" style="cursor: pointer">
           <p style="color: #6c87d2">{{food.name}}</p>
-          <p>{{food.responseFoodFactDTO.value}} {{food.responseFoodFactDTO.unit}} </p>
+          <p>{{food.responseFoodFactDTO.value}}
+            {{food.responseFoodFactDTO.unit}}
+          </p>
           <p>{{food.responseFoodFactDTO.calories}} kcal</p>
         </div>
       </li>
