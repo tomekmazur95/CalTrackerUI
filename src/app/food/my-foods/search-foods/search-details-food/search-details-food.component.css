@@ -19,3 +19,15 @@ section {
   display: flex;
   justify-content: space-between;
 }
+
+.food-facts-details-middle-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
