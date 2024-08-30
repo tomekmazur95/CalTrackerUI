@@ -26,9 +26,7 @@
 }
 
 .food-facts-details-last-section {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  margin: 20px;
 }
 
 input[type=number]::-webkit-outer-spin-button,
