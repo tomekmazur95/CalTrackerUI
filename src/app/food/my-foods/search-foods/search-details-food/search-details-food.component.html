@@ -14,26 +14,31 @@
           <p>{{foodDetails?.description}}</p>
         </div>
         <div>
-        <button mat-raised-button color="primary" >Add to food dairy</button>
-        <div style="display: flex; justify-content: space-around">
-          <button mat-raised-button style="margin-top: 20px" color="primary" >Edit</button>
-          <button mat-raised-button style="margin-top: 20px" color="warn" >Delete</button>
-        </div>
+          <button mat-raised-button color="primary">Add to food dairy</button>
+          <div style="display: flex; justify-content: space-around">
+            <button mat-raised-button style="margin-top: 20px" color="primary">Edit</button>
+            <button mat-raised-button style="margin-top: 20px" color="warn">Delete</button>
+          </div>
         </div>
       </div>
     </section>
     <section>
-      <div *ngIf="foodDetails">
-        <p>Serving size: </p>
-        <p>{{foodDetails?.responseFoodFactDTO.value}}</p>
-        <p>{{foodDetails?.responseFoodFactDTO.unit}}</p>
+      <div class="food-facts-details-middle-section">
+        <p>Servings: </p>
+        <form [formGroup]="servingSizeForm">
+          <mat-form-field style=" margin-top: 10px; width: 100px;" appearance="outline">
+            <input matInput type="number" formControlName="value" placeholder="1">
+          </mat-form-field>
+        </form>
+        <p>{{foodDetails?.responseFoodFactDTO.value}} &nbsp; {{foodDetails?.responseFoodFactDTO.unit}}</p>
       </div>
     </section>
     <section>
-      <div *ngIf="foodDetails">
-        <p>Nutrition Facts: </p>
-        <p>{{foodDetails?.name}}</p>
-        <p>{{foodDetails?.description}}</p>
+      <div class="food-facts-details-last-section">
+          <p style="font-size: large">Calorie:&nbsp;{{foodDetails?.responseFoodFactDTO.calories}}</p>
+          <p style="font-size: large">Protein:&nbsp;{{foodDetails?.responseFoodFactDTO.protein}}</p>
+          <p style="font-size: large">Total fat:&nbsp;{{foodDetails?.responseFoodFactDTO.fat}}</p>
+          <p style="font-size: large">Carbohydrates:&nbsp;{{foodDetails?.responseFoodFactDTO.carbohydrate}}</p>
       </div>
     </section>
   </div>

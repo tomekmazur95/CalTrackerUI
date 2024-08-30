@@ -12,10 +12,25 @@
   text-align: center;
   font-style: italic;
 }
-section {
-  border-bottom : 1px solid rgb(21, 20, 20);
-}
 .food-facts-details-first-section {
   display: flex;
   justify-content: space-between;
+  border-bottom : 1px solid rgb(21, 20, 20);
+}
+
+.food-facts-details-middle-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom : 1px solid rgb(21, 20, 20);
+}
+
+.food-facts-details-last-section {
+  margin: 20px;
+}
+
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }

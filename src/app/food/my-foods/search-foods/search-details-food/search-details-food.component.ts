@@ -1,5 +1,6 @@
 import {Component, Input} from '@angular/core';
 import {ResponseFoodDTO} from "../../../../shared/models";
+import {FormControl, FormGroup} from "@angular/forms";
 
 @Component({
   selector: 'app-search-details-food',
@@ -9,4 +10,8 @@ import {ResponseFoodDTO} from "../../../../shared/models";
 export class SearchDetailsFoodComponent {
 
   @Input() foodDetails: ResponseFoodDTO;
+
+  servingSizeForm = new FormGroup({
+    value: new FormControl(null),
+  });
 }
