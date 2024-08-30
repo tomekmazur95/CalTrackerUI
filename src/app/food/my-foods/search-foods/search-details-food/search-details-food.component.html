@@ -26,7 +26,7 @@
       <div class="food-facts-details-middle-section">
         <p>Servings: </p>
         <form [formGroup]="servingSizeForm">
-          <mat-form-field style=" margin-top: 10px" appearance="outline">
+          <mat-form-field style=" margin-top: 10px; width: 100px;" appearance="outline">
             <input matInput type="number" formControlName="value" placeholder="1">
           </mat-form-field>
         </form>
@@ -34,10 +34,9 @@
       </div>
     </section>
     <section>
-      <div class="food-facts-details-first-section">
-        <p>Nutrition Facts: </p>
-        <p>{{foodDetails?.name}}</p>
-        <p>{{foodDetails?.description}}</p>
+      <div class="food-facts-details-last-section">
+        <p style="font-size: large">Calorie: </p>
+        <p style="font-size: large">{{foodDetails?.responseFoodFactDTO.calories}}</p>
       </div>
     </section>
   </div>
